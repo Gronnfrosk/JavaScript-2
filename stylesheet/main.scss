@@ -66,12 +66,17 @@ margin-top: 75px;
 
     & .form-floating:focus-within {
     z-index: 2;
-}
-
-    & input[type="email"] {
+    }
+    
+    & input[type="text"], .login-email {
     margin-bottom: -1px;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
+    }
+    
+    & .register-email {
+    margin-bottom: -1px;
+    border-radius: 0;
     }
 
     & input[type="password"] {
@@ -80,6 +85,7 @@ margin-top: 75px;
     border-top-right-radius: 0;
 }
 }
+
 
 footer {
     display: flex;

@@ -18,7 +18,7 @@
 			integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
 			crossorigin="anonymous"
 		></script>
-		<title>GreenFrog | Login page</title>
+		<title>GreenFrog | Register page</title>
 	</head>
 	<body class="login-body">
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -44,7 +44,7 @@
 							<a class="nav-link" href="/html/profile.html">Profile</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link disabled" href="/html/login.html">Login</a>
+							<a class="nav-link" href="/html/login.html">Login</a>
 						</li>
 					</ul>
 					<form class="d-flex" role="search">
@@ -58,10 +58,15 @@
 			<form class="needs-validation" action="/profile" novalidate>
 				<div>
 					<i class="icon fa-duotone fa-frog text-success mb-5 text-center mx-auto"></i>
-					<h1 class="h3 mb-3 fw-normal">Login to GreenFrog</h1>
+					<h1 class="h3 mb-3 fw-normal">Register to GreenFrog</h1>
+				</div>
+				<div class="form-floating username">
+					<input type="text" class="form-control" id="validationCustom01" placeholder="Email address" required />
+					<div class="invalid-feedback mb-3">Please enter Username.</div>
+					<label for="validationCustom01 form-label">Username</label>
 				</div>
 				<div class="form-floating">
-					<input type="email" class="form-control login-email" id="validationCustom01" placeholder="Email address" required />
+					<input type="email" class="form-control register-email" id="validationCustom01" placeholder="Email address" required />
 					<div class="invalid-feedback mb-3">Please enter email.</div>
 					<label for="validationCustom01 form-label">Email address</label>
 				</div>
@@ -73,11 +78,7 @@
 				<div class="checkbox mb-3">
 					<label> <input type="checkbox" value="remember-me" /> Remember me </label>
 				</div>
-				<button id="login" class="w-100 btn btn-lg btn-info" type="submit">Login</button>
-				<div class="Register my-3">
-					<p class="mt-5">If you don't have an account:</p>
-					<a href="/html/register.html"> <button class="btn btn-success" type="button">Register here</button></a>
-				</div>
+				<button id="login" class="w-100 btn btn-lg btn-info" type="submit">Register</button>
 			</form>
 		</main>
 		<footer class="flex-wrap align-items-center my-4 border-top pt-3 w-75 m-auto mt-5">
