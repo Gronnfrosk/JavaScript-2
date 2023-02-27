@@ -1,0 +1,105 @@
+html,
+body {
+  height: 100%;
+}
+
+/*Home page*/
+header {
+  margin-top: 100px;
+}
+
+header i {
+  font-size: 3em;
+}
+
+.main-home {
+  margin-top: 100px;
+}
+
+.posts {
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+/*Profile page*/
+.example-image {
+  margin-top: 20px;
+  font-size: 6em;
+  width: 2em;
+}
+
+.contacts {
+  flex-direction: row;
+}
+.contacts button {
+  margin-top: 20px;
+}
+
+.posts {
+  margin-top: 75px;
+}
+
+.profile-post {
+  margin-top: 100px;
+}
+
+/*Login page*/
+.login-body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 40px;
+}
+
+.login-main {
+  margin-top: 200px;
+}
+.login-main .icon {
+  font-size: 3em;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+}
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+.form-signin input[type=email] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type=password] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+@media (max-width: 760px) {
+  .profile-main, .main-home {
+    margin: 0 20px;
+  }
+  .contacts {
+    flex-direction: column;
+  }
+  footer {
+    justify-content: center;
+    flex-direction: column-reverse;
+  }
+  footer .icon {
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
