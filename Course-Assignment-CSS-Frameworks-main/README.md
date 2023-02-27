@@ -1,65 +1,43 @@
-# Course Assignment: CSS Frameworks
+# CSS-frameworks-2023
 
-![image](https://user-images.githubusercontent.com/52622303/164316813-4b12d99f-aeb7-4069-85cf-e72b3a50ac99.png)
+Goal
+To apply knowledge of Bootstrap and SASS to build a responsive front end for a social media application.
 
-A simple overview of the use/purpose of the project.
+Brief
+You are tasked with creating 3 pages in HTML using Bootstrap and SASS:
 
-## Description
+Homepage
+Profile page
+Login page
+The homepage should have a feed of posts from the user’s contacts, a search bar, and a form to create a new post.
 
-This is a project mainly focusing on using HTML, bootstrap and SASS creating a 3 pages website.
+The profile page should have a profile image, details about the user, a list of the user’s contacts, their posts and a form to post to their wall.
 
-The architecture of website:
-1. Home page
-2. Profile page
-3. Login page
+The login page should have a form to login to the application. Ensure to include HTML form validation and use /profile as the action attribute.
 
-## Built With
+You will only be working on the visuals for this project at this stage; forms do not need to submit data, for example.
 
-- [SASS](https://sass-lang.com/)
-- [Bootstrap](https://getbootstrap.com)
+Submission for this project will follow the pattern used in professional development. You are required to seek feedback from your peers as well as the teachers to complete this assignment.
 
-## Getting Started
+Process
+Create a design or wireframe for each page
+Create a new public repository on GitHub
+Create a new project folder for this repository
+Create a new git branch for this project
+Create a package.json file
+Install Bootstrap, SASS and Live Server
+Configure NPM scripts in package.json
+Implement your design using Bootstrap and SASS overrides
+Create a Pull Request to merge your changes to the main branch
+Share this Pull Request and request peer review
+Discuss and implement the feedback gathered from peer review
+Share this Pull Request with a teacher for their approval
+Complete the approved Pull Request, or implement the required changes
+Delivery
+For peer review, please submit a link to your repository to the Moodle forum. You should review 2 of your peers’ submissions.
 
-### Installing
+Please submit your public GitHub repository URL and any supplementary files, such as wireframes. Your repo should have an active PR that the teachers will review.
 
-This is where you list how to get the project started. It typically just includes telling a person to clone the repo and then to install the dependencies e.g.
+Design files will not be included in your grade but will help to provide additional context to the marker.
 
-1. Clone the repo:
-
-```bash
-git clone git@github.com:NoroffFEU/portfolio-1-example.git
-```
-
-2. Install the dependencies:
-
-```
-npm install
-```
-
-### Running
-
-Here is where you detail how to run the app. It typically involves the commands you'd need to run to start the project e.g.
-
-To run the app, run the following commands:
-
-```bash
-npm run start
-```
-
-## Contributing
-
-Here you can detail any information you want to provide regarding contributing to the project. For big projects you will usually have a separate `CONTRIBUTING.md` and link to it, but for smaller projects you can simply include instructions here. These instructions can simply detail the process you want a person to take, such as to make sure to open a pull request so code can be reviewed.
-
-## Contact
-
-This is where you can leave your social links for people to contact you, such as a LinkedIn profile or Twitter link e.g.
-
-[My Twitter page](www.twitter.com)
-
-[My LinkedIn page](www.linkedin.com)
-
-
-
-## Acknowledgments
-
-This is where you can add any acknowledgements if you'd like, such as to people who have helped you or any code snippets you'd like to mention. You can delete this section if you don't have any acknowledgements to make.
+Please make sure to exclude node_modules by using a .gitignore file.
