@@ -80,6 +80,10 @@ header i {
   border-top-right-radius: 0;
 }
 
+.invalid-feedback {
+  text-align: left;
+}
+
 footer {
   display: flex;
   justify-content: space-between;

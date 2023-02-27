@@ -55,19 +55,37 @@
 			</div>
 		</nav>
 		<main class="login-main form-signin w-100 m-auto text-center">
-			<form class="needs-validation" action="/profile" novalidate>
+			<form id="loginForm" class="needs-validation" novalidate>
 				<div>
 					<i class="icon fa-duotone fa-frog text-success mb-5 text-center mx-auto"></i>
 					<h1 class="h3 mb-3 fw-normal">Login to GreenFrog</h1>
 				</div>
 				<div class="form-floating">
-					<input type="email" class="form-control login-email" id="validationCustom01" placeholder="Email address" required />
-					<div class="invalid-feedback mb-3">Please enter email.</div>
+					<input
+						type="email"
+						name="email"
+						class="form-control login-email"
+						id="validationCustom01"
+						placeholder="Email address"
+						required
+						pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
+						title="Only @noroff.no and @stud.noroff.no emails are allowed to login."
+					/>
+					<div class="invalid-feedback mb-3">Only @noroff.no and @stud.noroff.no emails are allowed to login.</div>
 					<label for="validationCustom01 form-label">Email address</label>
 				</div>
 				<div class="form-floating">
-					<input type="password" class="form-control" id="validationCustom02" placeholder="Password" required />
-					<div class="invalid-feedback mb-3">Please enter password.</div>
+					<input
+						type="password"
+						name="password"
+						autocomplete="on"
+						class="form-control"
+						id="validationCustom02"
+						placeholder="Password"
+						required
+						title="Requires password of at least 8 characters."
+					/>
+					<div class="invalid-feedback mb-3">Requires password of at least 8 characters.</div>
 					<label for="validationCustom02 form-label">Password</label>
 				</div>
 				<div class="checkbox mb-3">
@@ -93,7 +111,7 @@
 				<li class="nav-item"><a href="/html/login.html" class="nav-link px-2 text-muted">Login</a></li>
 			</ul>
 		</footer>
-		<script src="/javascript/login.js"></script>
-		<script src="/javascript/register.js"></script>
+		<script defer type="module" src="/javascript/modules/validate_input.mjs"></script>
+		<script defer type="module" src="/javascript/index.mjs"></script>
 	</body>
 </html>
