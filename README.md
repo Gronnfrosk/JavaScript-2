@@ -1,4 +1,4 @@
-# Course Assignment: CSS Frameworks
+# Course Assignment: JavaScript 2
 
 ![courseassignment](https://user-images.githubusercontent.com/91615712/214379197-91520110-b8e4-405d-a041-ec384d4acfb4.PNG)
 
