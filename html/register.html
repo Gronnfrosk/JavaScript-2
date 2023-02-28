@@ -18,7 +18,7 @@
 			integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
 			crossorigin="anonymous"
 		></script>
-		<title>GreenFrog | Login page</title>
+		<title>GreenFrog | Register page</title>
 	</head>
 	<body class="login-body">
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -44,7 +44,7 @@
 							<a class="nav-link" href="/html/profile.html">Profile</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link disabled" href="/html/login.html">Login</a>
+							<a class="nav-link" href="/html/login.html">Login</a>
 						</li>
 					</ul>
 					<form class="d-flex" role="search">
@@ -55,34 +55,51 @@
 			</div>
 		</nav>
 		<main class="login-main form-signin w-100 m-auto text-center">
-			<form id="loginForm" class="needs-validation" novalidate>
+			<form id="registerForm" class="needs-validation" novalidate>
 				<div>
 					<i class="icon fa-duotone fa-frog text-success mb-5 text-center mx-auto"></i>
-					<h1 class="h3 mb-3 fw-normal">Login to GreenFrog</h1>
+					<h1 class="h3 mb-3 fw-normal">Register to GreenFrog</h1>
+				</div>
+				<div class="form-floating username">
+					<input
+						type="text"
+						name="name"
+						class="form-control"
+						id="validationCustom00"
+						placeholder="username"
+						required
+						pattern="^[\w]+$"
+						title="User name must only contain lower and upper case letters, numbers and underscore. Example: User_name123"
+					/>
+					<div class="invalid-feedback mb-3 float-left">
+						User name must only contain lower and upper case letters, numbers and underscore. <br />Example: User_name123
+					</div>
+					<label for="validationCustom01 form-label">Username</label>
 				</div>
 				<div class="form-floating">
 					<input
 						type="email"
 						name="email"
-						class="form-control login-email"
+						class="form-control register-email"
 						id="validationCustom01"
 						placeholder="Email address"
 						required
 						pattern="^[\w\-.]+@(stud\.)?noroff\.no$"
-						title="Only @noroff.no and @stud.noroff.no emails are allowed to login."
+						title="Only @noroff.no and @stud.noroff.no emails are allowed to register."
 					/>
-					<div class="invalid-feedback mb-3">Only @noroff.no and @stud.noroff.no emails are allowed to login.</div>
+					<div class="invalid-feedback mb-3">Only @noroff.no and @stud.noroff.no emails are allowed to register.</div>
 					<label for="validationCustom01 form-label">Email address</label>
 				</div>
 				<div class="form-floating">
 					<input
 						type="password"
 						name="password"
-						autocomplete="on"
 						class="form-control"
 						id="validationCustom02"
 						placeholder="Password"
+						autocomplete="off"
 						required
+						minlength="8"
 						title="Requires password of at least 8 characters."
 					/>
 					<div class="invalid-feedback mb-3">Requires password of at least 8 characters.</div>
@@ -91,11 +108,7 @@
 				<div class="checkbox mb-3">
 					<label> <input type="checkbox" value="remember-me" /> Remember me </label>
 				</div>
-				<button id="login" class="w-100 btn btn-lg btn-info" type="submit">Login</button>
-				<div class="Register my-3">
-					<p class="mt-5">If you don't have an account:</p>
-					<a href="/html/register.html"> <button class="btn btn-success" type="button">Register here</button></a>
-				</div>
+				<button id="login" class="w-100 btn btn-lg btn-info" type="submit">Register</button>
 			</form>
 		</main>
 		<footer class="flex-wrap align-items-center my-4 border-top pt-3 w-75 m-auto mt-5">
