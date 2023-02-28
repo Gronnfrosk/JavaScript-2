@@ -1,6 +1,6 @@
 import { setRegisterFormListener } from "./modules/register.mjs";
 import { setLoginFormListener } from "./modules/login.mjs";
-import * as post from "./api/posts/index.mjs";
+//import * as post from "./api/posts/index.mjs";
 
 const path = location.pathname;
 
@@ -15,5 +15,3 @@ if (path === "/html/login.html") {
 //post.updatePost();
 //post.getPost();
 //post.getPosts().then(console.log);
-
-post.getPost(3733).then(console.log);
