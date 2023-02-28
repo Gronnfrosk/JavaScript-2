@@ -13,5 +13,12 @@ export async function register(profile) {
 	});
 
 	const result = await response.json();
+	console.log(result);
+	if (result.statusCode === 400) {
+		alert("Profile already exist");
+	} else {
+		alert("Welcome to GreenFrog! You are a member and can now login to your profile.");
+	}
+
 	return result;
 }

@@ -18,4 +18,10 @@ export async function login(profile) {
 	storage.save("token", accessToken);
 
 	storage.save("profile", user);
+
+	if (accessToken === undefined) {
+		alert("Error! The combination of user name and password may be incorrect or user is not registered at GreenFrog.");
+	} else {
+		alert("Welcome to GreenFrog! You are now logged in.");
+	}
 }
