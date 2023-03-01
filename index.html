@@ -61,17 +61,34 @@
 		</header>
 		<main class="main-home">
 			<div class="posts">
-				<div class="mb-3">
-					<label for="formGroupExampleInput" class="form-label">Post title</label>
-					<input type="text" class="form-control" id="formGroupExampleInput" placeholder="Title of post" />
-				</div>
-				<div class="mb-3">
-					<label for="validationTextarea" class="form-label">Post message</label>
-					<textarea class="form-control" id="validationTextarea" placeholder="message..." required></textarea>
-				</div>
-				<div class="pb-5 text-end border-bottom">
-					<button class="btn btn-info" type="submit" disabled>Submit new post</button>
-				</div>
+				<form id="create">
+					<div class="mb-3">
+						<label for="formGroupExampleInput" class="form-label">Post title</label>
+						<input type="text" name="title" class="form-control" placeholder="Title of post" required />
+					</div>
+					<div class="mb-3">
+						<label for="validationTextarea" class="form-label">Post message</label>
+						<textarea name="body" class="form-control" placeholder="message..." required></textarea>
+					</div>
+					<div class="pb-5 text-end border-bottom">
+						<button class="btn btn-info">Submit new post</button>
+					</div>
+				</form>
+				<!-- Update something...
+				<form id="update">
+					<div class="mb-3">
+						<label for="formGroupExampleInput" class="form-label">Post title</label>
+						<input type="text" name="title" class="form-control" placeholder="Title of post" required />
+					</div>
+					<div class="mb-3">
+						<label for="validationTextarea" class="form-label">Post message</label>
+						<textarea name="body" class="form-control" placeholder="message..." required></textarea>
+					</div>
+					<div class="pb-5 text-end border-bottom">
+						<button class="btn btn-info">Update post</button>
+					</div>
+				</form>
+				-->
 				<h2 class="mt-5">Post feed</h2>
 				<div id="allPosts"></div>
 			</div>
