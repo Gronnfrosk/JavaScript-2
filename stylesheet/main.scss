@@ -20,6 +20,15 @@ header i {
     margin: 0 auto;
   }
 
+.pe-0 {
+    padding-left: 0!important;
+}
+
+.fa-trash-can:hover, .fa-pencil:hover {
+    color: #0dcaf0;
+    cursor: pointer;
+} 
+
 /*Profile page*/
 .example-image {
     margin-top: 20px;
