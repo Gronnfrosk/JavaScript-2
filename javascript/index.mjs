@@ -1,6 +1,9 @@
+console.log("Hello");
+
 import * as listeners from "./modules/index.mjs";
 import * as templates from "./templates/index.mjs";
 import * as postMethods from "./api/posts/index.mjs";
+import { logout } from "./api//auth/logout.mjs";
 
 const path = location.pathname;
 
@@ -11,18 +14,28 @@ if (path === "/html/login.html") {
 } else if (path === "/index.html") {
 	listeners.setCreatePostFormListener();
 	listeners.setUpdatePostFormListener();
+	listeners.checkUser();
+	logout();
+} else if (path === "/html/profile.html") {
+	listeners.setCreatePostFormListener();
+	listeners.setUpdatePostFormListener();
+	listeners.checkUser();
+	logout();
 }
 
-console.log("Hello");
-
 if (path === "/index.html" || path === "/html/profile.html") {
-	async function testTemplate() {
+	async function createPost() {
 		const posts = await postMethods.getPosts();
 		const container = document.querySelector("#allPosts");
 		templates.renderPostTemplates(posts, container);
+
+		const deleteBtn = document.querySelectorAll(".delete-btn");
+		listeners.deletePost();
 	}
 
-	testTemplate();
+	createPost();
+
+	//postMethods.removePost(1);
 }
 
 //import { createPost } from "./api/posts/post.mjs";
