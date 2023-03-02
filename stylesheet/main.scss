@@ -6,9 +6,14 @@ body {
 /*Home page*/
 header {
     margin-top: 100px;
-}
-header i {
+   
+    & i {
     font-size: 3em;
+    }
+}
+
+.search_form {
+    width: 225px;
 }
 
 .main-home {
