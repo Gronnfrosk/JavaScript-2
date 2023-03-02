@@ -12,9 +12,7 @@ header {
     }
 }
 
-.search_form {
-    width: 225px;
-}
+
 
 .main-home {
     margin-top: 100px;
@@ -110,13 +108,16 @@ footer {
     
 }
 
-@media (min-width: 768px) {
+@media (min-width: 991px) {
+    .search_form {
+    width: 225px;
+    }
     .bd-placeholder-img-lg {
         font-size: 3.5rem;
     }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 990px) {
     .profile-main, .main-home {
         margin: 0 20px
     }

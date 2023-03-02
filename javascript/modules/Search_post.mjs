@@ -25,8 +25,6 @@ export async function fetchPostsWithToken() {
 	}
 }
 
-fetchPostsWithToken();
-
 function searchPosts(posts) {
 	const search = document.querySelector("#search_form");
 	search.onkeyup = function (event) {
