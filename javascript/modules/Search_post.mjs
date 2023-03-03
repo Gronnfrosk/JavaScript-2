@@ -1,7 +1,5 @@
 import { load } from "../storage/token.mjs";
-
-const url = "https://nf-api.onrender.com/api/v1/social/posts";
-// "https://api.noroff.dev/api/v1/social/posts?_author=true";
+import { API_SOCIAL_POSTS } from "../api/constants.mjs";
 
 export async function fetchPostsWithToken() {
 	try {
@@ -15,7 +13,7 @@ export async function fetchPostsWithToken() {
 			},
 		};
 
-		const response = await fetch(url, getPosts);
+		const response = await fetch(API_SOCIAL_POSTS, getPosts);
 		const result = await response.json();
 
 		searchPosts(result);
@@ -29,12 +27,26 @@ function searchPosts(posts) {
 	const search = document.querySelector("#search_form");
 	search.onkeyup = function (event) {
 		const searchInput = event.target.value.trim().toLowerCase();
-		console.log(searchInput);
+		const searchInputNumber = parseInt(searchInput);
+		//console.log(searchInputNumber);
+		//console.log(typeof searchInput);
 		const searchFiltered = posts.filter(function (posts) {
 			if (posts.title.toLowerCase().includes(searchInput)) {
 				return true;
 			}
 		});
+		//const searchNumberFiltered = posts.filter(testNumber());
+		//function testNumber(posts) {
+		//	if (posts.id.includes(searchInputNumber)) {
+		//		console.log(typeof searchInputNumber);
+		//		console.log(posts.id);
+		//		console.log(typeof posts.id);
+		//
+		//		return true;
+		//	}
+		//}
+
+		//showSearchResults(searchNumberFiltered);
 		showSearchResults(searchFiltered);
 	};
 }
