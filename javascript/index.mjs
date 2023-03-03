@@ -24,16 +24,21 @@ if (path === "/html/login.html") {
 }
 
 if (path === "/index.html" || path === "/html/profile.html") {
-	async function createPost() {
+	async function postFeatures() {
+		//Create posts
 		const posts = await postMethods.getPosts();
 		const container = document.querySelector("#allPosts");
 		templates.renderPostTemplates(posts, container);
 
+		//Delete posts
 		const deleteBtn = document.querySelectorAll(".delete-btn");
 		listeners.deletePost();
+
+		//Search posts
+		listeners.fetchPostsWithToken();
 	}
 
-	createPost();
+	postFeatures();
 
 	//postMethods.removePost(1);
 }

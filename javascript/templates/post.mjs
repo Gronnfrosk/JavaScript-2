@@ -1,5 +1,3 @@
-import { removePost } from "../api/posts/delete.mjs";
-
 export function postTemplateA(postData) {
 	const container = document.querySelector("#allPosts");
 
@@ -22,7 +20,7 @@ export function postTemplateA(postData) {
                         <p class="card-text">${postData.body}</p>
                         <p class="card-text"><small class="text-muted">Posted: ${postData.created}</small></p>
                         <i class="fa-regular fa-user float-end text-info mx-1"></i>
-                        <p class="card-text float-end mx-2">${postData.profile}</p>
+                        <p class="card-text float-end mx-2">Someone</p>
                     </div>
                 </div>
             </div>`;
@@ -38,7 +36,7 @@ export function postTemplateA(postData) {
             <p class="card-text">${postData.body}</p>
             <p class="card-text"><small class="text-muted">Posted: ${postData.created}</small></p>
             <i class="fa-regular fa-user float-end text-info mx-1"></i>
-            <p class="card-text float-end mx-2">${postData.author}</p>
+            <p class="card-text float-end mx-2">Someone</p>
         </div>
     </div>
 </div>`;
