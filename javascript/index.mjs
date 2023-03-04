@@ -34,8 +34,8 @@ if (path === "/index.html" || path === "/html/profile.html") {
 		const deleteBtn = document.querySelectorAll(".delete-btn");
 		listeners.deletePost();
 
-		//Search posts
-		listeners.fetchPostsWithToken();
+		//Search and filter posts
+		listeners.searchFilter();
 	}
 
 	postFeatures();

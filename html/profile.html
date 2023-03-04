@@ -120,21 +120,31 @@
 					</div>
 				</section>
 
-				<div class="posts">
-					<h2 class="mt-5">Wall posts</h2>
-					<div class="mb-3">
-						<label for="formGroupExampleInput" class="form-label">Post title</label>
-						<input type="text" class="form-control" id="formGroupExampleInput" placeholder="Title of post to wall" />
-					</div>
-					<div class="mb-3">
-						<label for="validationTextarea" class="form-label">Post message</label>
-						<textarea class="form-control" id="validationTextarea" placeholder="message..." required></textarea>
-					</div>
-					<div class="pb-5 text-end">
-						<button class="btn btn-info" type="submit" disabled>Submit new post</button>
-					</div>
+<div class="posts"><h2 class="mt-5">Wall posts</h2>
+	<form id="create">
+		<div class="mb-3">
+			<label for="formGroupExampleInput" class="form-label">Post title</label>
+			<input type="text" name="title" class="form-control" placeholder="Title of post" required />
+		</div>
+		<div class="mb-3">
+			<label for="validationTextarea" class="form-label">Post message</label>
+			<textarea name="body" class="form-control" placeholder="message..." required></textarea>
+		</div>
+		<div class="pb-5 text-end border-bottom">
+			<button class="btn btn-info">Submit new post</button>
+		</div>
+	</form>
+				<div class="dropdown w-100 d-flex justify-content-end mt-5">
+					<button class="btn dropdown-toggle fw-bold" type="button" data-bs-toggle="dropdown" aria-expanded="false">Filter</button>
+					<ul class="dropdown-menu" aria-labelledby="filterPost">
+						<li><a href="index.html" class="dropdown-item" id="">Latest posts</a></li>
+						<li><a href="index.html?filter=old_posts" class="dropdown-item" id="">Oldest posts</a></li>
+						<li><a href="index.html?filter=no_img" class="dropdown-item" id="">Posts without image</a></li>
+						<li><a href="index.html?filter=with_img" class="dropdown-item" id="">Posts with image</a></li>
+					</ul>
 				</div>
-				<div id="allPosts"></div>
+				<div class="allPosts" id="allPosts"></div>
+				<div class="hide" id="hide">undefinedundefinedundefinedundefinedundefinedundefinedundefinedundefi</div>
 			</div>
 		</main>
 		<footer class="d-flex flex-wrap justify-content-between align-items-center pt-3 border-top w-75 mx-auto" style="margin-top: 75px">

@@ -20,6 +20,17 @@ header i {
   margin: 0 auto;
 }
 
+.allPosts {
+  overflow: hidden;
+}
+
+.hide {
+  position: relative;
+  top: -24px;
+  background-color: white;
+  color: white;
+}
+
 .pe-0 {
   padding-left: 0 !important;
 }
@@ -27,6 +38,11 @@ header i {
 .fa-trash-can:hover, .fa-pencil:hover {
   color: #0dcaf0;
   cursor: pointer;
+}
+
+.reverse {
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 /*Profile page*/
