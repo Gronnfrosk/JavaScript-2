@@ -35,7 +35,7 @@ if (path === "/index.html" || path === "/html/profile.html") {
 		listeners.deletePost();
 
 		//Search and filter posts
-		listeners.searchFilter();
+		postMethods.searchFilter();
 	}
 
 	postFeatures();

@@ -25,11 +25,24 @@ header {
     overflow: hidden;
     
 }
+
+.dropdown-menu li::marker {
+    color: white;
+}
+
 .hide {
    position: relative;
    top: -24px;
    background-color: white;
    color: white;
+}
+
+.hideOld {
+    display: none;
+    position: relative;
+    top: 24px;
+    background-color: white;
+    color: white;
 }
 
 .pe-0 {
