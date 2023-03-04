@@ -18,6 +18,7 @@ export function postTemplateA(postData) {
                             <img src="${postData.media}" alt="Image for the post: ${postData.title}" class="pe-0">
                         </div>
                         <p class="card-text">${postData.body}</p>
+                        <p class="card-text">Tags: ${postData.tags}</p>
                         <p class="card-text"><small class="text-muted">Posted: ${postData.created}</small></p>
                         <i class="fa-regular fa-user float-end text-info mx-1"></i>
                         <p class="card-text float-end mx-2">Someone</p>
@@ -34,6 +35,7 @@ export function postTemplateA(postData) {
             </div>
             <h5 class="card-title">${postData.title}</h5>
             <p class="card-text">${postData.body}</p>
+            <p class="card-text">Tags: ${postData.tags}</p>
             <p class="card-text"><small class="text-muted">Posted: ${postData.created}</small></p>
             <i class="fa-regular fa-user float-end text-info mx-1"></i>
             <p class="card-text float-end mx-2">Someone</p>

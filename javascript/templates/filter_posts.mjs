@@ -26,6 +26,7 @@ export function filterPosts(posts) {
                                 <img src="${media}" alt="Image for the post: ${title}" class="pe-0">
                             </div>
                             <p class="card-text">${body}</p>
+							<p class="card-text">Tags: ${tags}</p>
                             <p class="card-text"><small class="text-muted">Posted: ${created}</small></p>
                             <i class="fa-regular fa-user float-end text-info mx-1"></i>
                             <p class="card-text float-end mx-2">Someone</p>
@@ -51,6 +52,7 @@ export function filterPosts(posts) {
 								</div>
 								<h5 class="card-title">${title}</h5>
 								<p class="card-text">${body}</p>
+								<p class="card-text">Tags: ${tags}</p>
 								<p class="card-text"><small class="text-muted">Posted: ${created}</small></p>
 								<i class="fa-regular fa-user float-end text-info mx-1"></i>
 								<p class="card-text float-end mx-2">Someone</p>
