@@ -5,6 +5,8 @@
 ## Description
 From previous course assigment project (https://github.com/Gronnfrosk/Course-Assignment-CSS-Frameworks/tree/bootstrap-and-sass) I have added the features listed down below. By using Noroff's API and API documentation, I created a functioning user interface that allows for viewing, posting, editing and deleting social media content. Social API routes require authorisation via JWT (JSON Web Tokens). One must register an account and login to access token which is stored in the localStorage.
 
+Trello was used to manage the development tasks. Link to Trello board: https://trello.com/invite/b/RV4zaiNS/ATTIc13da56da8f076c7ac6ca10b648ccab411682FEC/javascript-2
+
 ### Goal: 
 To apply knowledge of JavaScript techniques to implement the front-end functionality for a social media application.
 #### Features added to this project:
