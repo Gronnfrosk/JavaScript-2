@@ -16,6 +16,6 @@ export function setCreatePostFormListener() {
 
 		setTimeout(() => {
 			window.location.reload();
-		}, 500);
+		}, 1000);
 	});
 }
