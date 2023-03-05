@@ -42,6 +42,8 @@ export async function searchFilter() {
 		const result = await response.json();
 
 		searchPosts.searchPosts(result);
+		console.log(result.id);
+
 		templates.filterPosts(result);
 	} catch (error) {
 		console.log(error);

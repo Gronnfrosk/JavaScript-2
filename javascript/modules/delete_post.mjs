@@ -10,7 +10,6 @@ export async function deletePost() {
 
 			if (confirm(deleteConfirm)) {
 				removePost(deleteBtn[i].id);
-				//console.log(deleteBtn[i].id);
 				window.location.reload();
 				alert("You can't delete other users post");
 			}
