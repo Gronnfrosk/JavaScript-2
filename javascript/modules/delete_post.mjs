@@ -2,7 +2,6 @@ import { removePost } from "../api/posts/delete.mjs";
 
 export async function deletePost() {
 	const deleteBtn = document.querySelectorAll(".delete-btn");
-	//console.log(deleteBtn);
 
 	for (let i = 0; i < deleteBtn.length; i++) {
 		deleteBtn[i].addEventListener("click", () => {
