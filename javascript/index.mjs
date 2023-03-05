@@ -12,30 +12,33 @@ if (path === "/html/login.html") {
 } else if (path === "/html/register.html") {
 	listeners.setRegisterFormListener();
 } else if (path === "/index.html") {
-	listeners.setCreatePostFormListener();
-	listeners.setUpdatePostFormListener();
-	listeners.checkUser();
-	logout();
 } else if (path === "/html/profile.html") {
-	listeners.setCreatePostFormListener();
-	listeners.setUpdatePostFormListener();
-	listeners.checkUser();
-	logout();
 }
 
 if (path === "/index.html" || path === "/html/profile.html") {
 	async function postFeatures() {
-		//Create posts
+		// Check user or logout
+
+		listeners.checkUser();
+		logout();
+
+		//show post feed
 		const posts = await postMethods.getPosts();
 		const container = document.querySelector("#allPosts");
 		templates.renderPostTemplates(posts, container);
 
+		// Create post
+		listeners.setCreatePostFormListener();
+
 		//Delete posts
-		const deleteBtn = document.querySelectorAll(".delete-btn");
 		listeners.deletePost();
 
 		//Search and filter posts
 		postMethods.searchFilter();
+
+		// Update post
+		listeners.setUpdatePostFormListener();
+		//templates.updatePost();
 	}
 
 	postFeatures();

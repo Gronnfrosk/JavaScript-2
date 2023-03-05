@@ -1,13 +1,15 @@
 import { createPost } from "../api/posts/index.mjs";
 
 export function setCreatePostFormListener() {
-	const form = document.querySelector("#create");
+	const formCreate = document.querySelector("#create");
 
-	form.addEventListener("submit", (event) => {
+	formCreate.addEventListener("submit", (event) => {
 		event.preventDefault();
 		const form = event.target;
 		const formData = new FormData(form);
 		const post = Object.fromEntries(formData.entries());
+		const tagsArray = post.tags.split(" ");
+		post.tags = tagsArray;
 
 		// send it to the API
 		createPost(post);
