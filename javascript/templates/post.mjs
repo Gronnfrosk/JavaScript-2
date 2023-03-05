@@ -1,9 +1,6 @@
 export function postTemplateA(postData) {
 	const container = document.querySelector("#allPosts");
 
-	//console.log(postData);
-	//console.log(postData.id);
-
 	if (postData.media) {
 		container.innerHTML += `<div class="card mb-3 mt-3">
                 <div class="row g-0">

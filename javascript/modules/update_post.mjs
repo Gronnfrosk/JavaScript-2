@@ -35,7 +35,7 @@ export async function setUpdatePostFormListener() {
 
 			setTimeout(() => {
 				window.location.reload();
-			}, 500);
+			}, 1000);
 		});
 	}
 }

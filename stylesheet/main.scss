@@ -12,10 +12,6 @@ header {
     }
 }
 
-.main-home {
-    margin-top: 100px;
-  }
-
 .posts {
     max-width: 540px;
     margin: 0 auto;
@@ -37,6 +33,7 @@ header {
 .hide {
    position: relative;
    top: -24px;
+   padding: 10px;
    background-color: white;
    color: white;
 }

@@ -11,14 +11,9 @@ if (path === "/html/login.html") {
 	listeners.setLoginFormListener();
 } else if (path === "/html/register.html") {
 	listeners.setRegisterFormListener();
-} else if (path === "/index.html") {
-} else if (path === "/html/profile.html") {
-}
-
-if (path === "/index.html" || path === "/html/profile.html") {
+} else if (path === "/index.html" || path === "/html/profile.html") {
 	async function postFeatures() {
 		// Check user or logout
-
 		listeners.checkUser();
 		logout();
 
@@ -38,31 +33,7 @@ if (path === "/index.html" || path === "/html/profile.html") {
 
 		// Update post
 		listeners.setUpdatePostFormListener();
-		//templates.updatePost();
 	}
 
 	postFeatures();
-
-	//postMethods.removePost(1);
 }
-
-//import { createPost } from "./api/posts/post.mjs";
-//import { updatePost } from "./api/posts/put.mjs";
-//import { removePost } from "./api/posts/delete.mjs";
-//import * as post from "./api/posts/index.mjs";
-
-//createPost({
-//	title: "Hello",
-//	body: "Welcome",
-//});
-
-//updatePost({
-//	id: 3742,
-//	title: "Hello once again",
-//	body: "Welcome once more",
-//});
-
-//removePost(3733);
-
-//post.getPosts().then(console.log);
-//post.getPost(3742).then(console.log);
