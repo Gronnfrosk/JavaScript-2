@@ -30,15 +30,15 @@ if (path === "/index.html" || path === "/html/profile.html") {
 		// Create post
 		listeners.setCreatePostFormListener();
 
-		// Update post
-		listeners.setUpdatePostFormListener();
-
 		//Delete posts
-		const deleteBtn = document.querySelectorAll(".delete-btn");
 		listeners.deletePost();
 
 		//Search and filter posts
 		postMethods.searchFilter();
+
+		// Update post
+		listeners.setUpdatePostFormListener();
+		//templates.updatePost();
 	}
 
 	postFeatures();

@@ -8,6 +8,8 @@ export function setCreatePostFormListener() {
 		const form = event.target;
 		const formData = new FormData(form);
 		const post = Object.fromEntries(formData.entries());
+		const tagsArray = post.tags.split(" ");
+		post.tags = tagsArray;
 
 		// send it to the API
 		createPost(post);

@@ -24,6 +24,10 @@ header i {
   overflow: hidden;
 }
 
+.dropdown form {
+  width: 350px;
+}
+
 .dropdown-menu li::marker {
   color: white;
 }
