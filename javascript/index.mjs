@@ -19,7 +19,6 @@ if (path === "/html/login.html") {
 } else if (path === "/index.html" || path === "/html/profile.html") {
 	listeners.checkUser();
 	listeners.logout();
-	templates.displayProfile();
 
 	async function postFeatures() {
 		//show post feed
@@ -40,4 +39,10 @@ if (path === "/html/login.html") {
 		listeners.setUpdatePostFormListener();
 	}
 	postFeatures();
+
+	if (path === "/html/profile.html") {
+		templates.displayProfile();
+	}
+} else if (path === "/html/specific_post.html") {
+	listeners.displaySpecificPost();
 }
