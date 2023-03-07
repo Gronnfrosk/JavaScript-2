@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: templates/search_posts.mjs</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: templates/search_posts.mjs</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const container = document.querySelector("#allPosts");
+const hide = document.querySelector("#hide");
+
+/**
+ * This function uses data from searched posts to display each post in html with and without image.
+ * @param {Array} posts Array of searched posts.
+ * @param {Array} Array This is a list of data of a post.
+ * @param {Element} container This is a html element where all generated posts data are displayed.
+ * @param {Element} hide html element to hide unwanted text.
+ */
+
+export function showSearchResults(posts) {
+	hide.style.display = "none";
+	container.innerHTML = "";
+	posts.forEach(function (post) {
+		const { title, media, body, id, created, tags } = post;
+		if (post.media) {
+			container.innerHTML += `
+			&lt;div class="card mb-3 mt-3">
+			&lt;div class="row g-0">
+				&lt;div class="card-body">
+					&lt;div class="float-end">
+						&lt;div title="Delete button. You can't delete other users post">&lt;i class="fa-solid fa-trash-can py-2 delete-btn" id="${id}">&lt;/i>&lt;/div>
+						&lt;div class="dropdown">&lt;i class="fa-solid fa-pencil py-2 edit-btn dropdown-toggle" id="${id}" title="Edit button. You can't edit other users post" data-bs-toggle="dropdown">&lt;/i>
+						&lt;form class="dropdown-menu" id="update">
+							&lt;div class="mb-3 mx-4">
+								&lt;label class="form-label">Post title&lt;/label>
+								&lt;input type="text" name="title" class="form-control" placeholder="${title}" />
+							&lt;/div>
+							&lt;div class="mb-3 mx-4">
+								&lt;label class="form-label">Post message&lt;/label>
+								&lt;textarea name="body" class="form-control" placeholder="${body}">&lt;/textarea>
+							&lt;/div>
+															
+							&lt;div class="mb-3 mx-4">
+								&lt;label class="form-label">Tags&lt;/label>
+								&lt;input type="text" name="tags" class="form-control" placeholder="${tags}">&lt;/input>
+							&lt;/div>
+							
+							&lt;div class="mb-3 mx-4">
+								&lt;label class="form-label">Media&lt;/label>
+								&lt;input type="url" name="media" class="form-control" placeholder="${media}">&lt;/input>
+							&lt;/div>
+							
+							&lt;div class="pb-4 text-end mx-3">
+								&lt;button class="btn btn-info">Update post&lt;/button>
+							&lt;/div>
+						&lt;/form>
+						&lt;/div>
+					&lt;/div>
+					&lt;h5 class="card-title">${title}&lt;/h5>
+					&lt;div class="row px-5 pb-4">
+						&lt;img src="${media}" alt="Image for the post: ${title}" class="pe-0">
+					&lt;/div>
+					&lt;p class="card-text">${body}&lt;/p>
+					&lt;p class="card-text">Tags: ${tags}&lt;/p>
+					&lt;p class="card-text">&lt;small class="text-muted">Posted: ${created}&lt;/small>&lt;/p>
+					&lt;i class="fa-regular fa-user float-end text-info mx-1">&lt;/i>
+					&lt;p class="card-text float-end mx-2">Someone&lt;/p>
+				&lt;/div>
+			&lt;/div>
+		&lt;/div>`;
+		} else {
+			container.innerHTML += `&lt;div class="card mb-3 mt-3">
+            &lt;div class="row g-0">
+                &lt;div class="card-body">
+                    &lt;div class="float-end">
+                    &lt;div title="Delete button. You can't delete other users post">
+                        &lt;i class="fa-solid fa-trash-can py-2 delete-btn" id="${id}">&lt;/i>
+                    &lt;/div>
+                    &lt;div class="dropdown">
+                        &lt;i class="fa-solid fa-pencil py-2 edit-btn dropdown-toggle" id="${id}" title="Edit button. You can't edit other users post" data-bs-toggle="dropdown">&lt;/i>
+                        &lt;form class="dropdown-menu" id="update">
+                            &lt;div class="mb-3 mx-4">
+                                &lt;label class="form-label">Post title&lt;/label>
+                                &lt;input type="text" name="title" class="form-control" placeholder="${title}" />
+                            &lt;/div>
+                            &lt;div class="mb-3 mx-4">
+                                &lt;label class="form-label">Post message&lt;/label>
+                                &lt;textarea name="body" class="form-control" placeholder="${body}" >&lt;/textarea>
+                            &lt;/div>
+                                                            
+                            &lt;div class="mb-3 mx-4">
+                                &lt;label class="form-label">Tags&lt;/label>
+                                &lt;input type="text" name="tags" class="form-control" placeholder="${tags}">&lt;/input>
+                            &lt;/div>
+                            
+                            &lt;div class="mb-3 mx-4">
+                                &lt;label class="form-label">Media&lt;/label>
+                                &lt;input type="url" name="media" class="form-control">&lt;/input>
+                            &lt;/div>
+                            
+                            &lt;div class="pb-4 text-end mx-3">
+                                &lt;button class="btn btn-info">Update post&lt;/button>
+                            &lt;/div>
+                        &lt;/form>
+                        &lt;/div>
+                    &lt;/div>
+                    &lt;h5 class="card-title">${title}&lt;/h5>
+                    &lt;p class="card-text">${body}&lt;/p>
+                    &lt;p class="card-text">Tags: ${tags}&lt;/p>
+                    &lt;p class="card-text">&lt;small class="text-muted">Posted: ${created}&lt;/small>&lt;/p>
+                    &lt;i class="fa-regular fa-user float-end text-info mx-1">&lt;/i>
+                    &lt;p class="card-text float-end mx-2">Someone&lt;/p>
+                &lt;/div>
+            &lt;/div>
+        &lt;/div>`;
+		}
+	});
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#checkUser">checkUser</a></li><li><a href="global.html#cratePost()ThisfunctionSendsAPIrequest%2522POST%2522withpostdata.">cratePost() This function Sends API request "POST" with post data.</a></li><li><a href="global.html#createPost">createPost</a></li><li><a href="global.html#filterPosts">filterPosts</a></li><li><a href="global.html#getPost">getPost</a></li><li><a href="global.html#getPosts">getPosts</a></li><li><a href="global.html#headers">headers</a></li><li><a href="global.html#headers()ThisfunctioncontainstheheaderforHTTPrequestmethods.">headers() This function contains the header for HTTP request methods.</a></li><li><a href="global.html#load">load</a></li><li><a href="global.html#login">login</a></li><li><a href="global.html#login()ThisfunctionsendstheprofiledatatoanAPI%2522POST%2522methodandinformswhethertheloginwassuccessfulornot.">login() This function sends the profile data to an API "POST" method and informs whether the login was successful or not.</a></li><li><a href="global.html#logout">logout</a></li><li><a href="global.html#postTemplate">postTemplate</a></li><li><a href="global.html#register">register</a></li><li><a href="global.html#register()ThisfunctionsendstheprofiledatatoanAPI%2522POST%2522methodandinformswhethertheregistrationwassuccessfulornot.">register() This function sends the profile data to an API "POST" method and informs whether the registration was successful or not.</a></li><li><a href="global.html#remove">remove</a></li><li><a href="global.html#removePost">removePost</a></li><li><a href="global.html#removePost()ThisfunctionsendsAPI%2522DELETE%2522requestwithapostid.">removePost() This function sends API "DELETE" request with a post id.</a></li><li><a href="global.html#renderPostTemplates">renderPostTemplates</a></li><li><a href="global.html#save">save</a></li><li><a href="global.html#setUpdatePostFormListener">setUpdatePostFormListener</a></li><li><a href="global.html#showSearchResults">showSearchResults</a></li><li><a href="global.html#showSearchResults()Thisisafunctionfordisplayingeachpostswithandwithoutimage/media">showSearchResults() This is a function for displaying each posts with and without image/media</a></li><li><a href="global.html#updatePost">updatePost</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Tue Mar 07 2023 18:07:21 GMT+0100 (sentraleuropeisk normaltid)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -7,6 +7,10 @@ import * as templates from "../../templates/index.mjs";
 
 const action = "/posts";
 
+/**
+ * This async function sends an API "Get" request.
+ * @param {String} getPostURL This is the url needed for "GET" request.
+ */
 export async function getPosts() {
 	const getPostURL = `${API_SOCIAL_URL}${action}`;
 
@@ -15,6 +19,11 @@ export async function getPosts() {
 	return await response.json();
 }
 
+/**
+ * This async function sends an API "GET" request by id.
+ * @param {Number} id The id number of a post
+ * @param {String} getPostURL This is the url needed for "GET" request.
+ */
 export async function getPost(id) {
 	if (!id) {
 		throw new Error("Get requires an ID!");
@@ -26,6 +35,12 @@ export async function getPost(id) {
 	return await response.json();
 }
 
+/**
+ * This async function sends an API "Get" request and sorts them based on search or filter.
+ * @param {String} getPostURL This is the url needed for "GET" request.
+ * @function searchPosts() This function uses post title and id to display the search results.
+ * @function filterPosts() This function gets data from posts and filters posts with, without image/media and oldest by query string.
+ */
 export async function searchFilter() {
 	try {
 		const token = load("token");
@@ -42,8 +57,6 @@ export async function searchFilter() {
 		const result = await response.json();
 
 		searchPosts.searchPosts(result);
-		console.log(result.id);
-
 		templates.filterPosts(result);
 	} catch (error) {
 		console.log(error);

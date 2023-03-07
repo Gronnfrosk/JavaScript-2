@@ -29,6 +29,7 @@ header i {
 }
 
 .hide {
+  display: none;
   position: relative;
   top: -24px;
   padding: 10px;

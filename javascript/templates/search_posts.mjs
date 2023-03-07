@@ -1,6 +1,16 @@
 const container = document.querySelector("#allPosts");
+const hide = document.querySelector("#hide");
+
+/**
+ * This function uses data from searched posts to display each post in html with and without image.
+ * @param {Array} posts Array of searched posts.
+ * @param {Array} Array This is a list of data of a post.
+ * @param {Element} container This is a html element where all generated posts data are displayed.
+ * @param {Element} hide html element to hide unwanted text.
+ */
 
 export function showSearchResults(posts) {
+	hide.style.display = "none";
 	container.innerHTML = "";
 	posts.forEach(function (post) {
 		const { title, media, body, id, created, tags } = post;
