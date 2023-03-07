@@ -1,4 +1,7 @@
-// Disabling form submissions if there are invalid fields
+/**
+ * This function disable form submissions if there are invalid fields.
+ * @param {Element} forms This is the html element where the form is displayed.
+ */
 (() => {
 	"use strict";
 

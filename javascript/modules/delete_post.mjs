@@ -1,6 +1,11 @@
 import { removePost } from "../api/posts/delete.mjs";
 
-export async function deletePost() {
+/**
+ * This function allows to delete posts from API
+ * @param {Element} deleteBtn This is the html location of the element button.
+ * @function removePost() This function sends API "DELETE" request with a post id.
+ */
+export function deletePost() {
 	const deleteBtn = document.querySelectorAll(".delete-btn");
 
 	for (let i = 0; i < deleteBtn.length; i++) {

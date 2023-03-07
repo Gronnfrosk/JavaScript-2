@@ -1,13 +1,20 @@
-export function filterPosts(posts) {
-	const hide = document.querySelector("#hide");
-	const hideOld = document.querySelector("#hideOld");
-	const container = document.querySelector("#allPosts");
-	const params = new URLSearchParams(window.location.search);
-	const filterParam = params.get("filter");
+const hide = document.querySelector("#hide");
+const hideOld = document.querySelector("#hideOld");
+const container = document.querySelector("#allPosts");
+const params = new URLSearchParams(window.location.search);
+const filterParam = params.get("filter");
 
+/**
+ * This function gets data from posts and filters posts with, without image/media and oldest by query string.
+ * @param {Array} posts Array of posts data.
+ * @param {Array} Array This is a list of data of one post.
+ * @param {Element} container This is a html element where all generated posts data are displayed.
+ * @param {Element} hide html element to hide unwanted text.
+ * @param {Element} hideOld html element to hide unwanted text.
+ */
+export function filterPosts(posts) {
 	if (filterParam === "with_img") {
 		container.innerHTML = "";
-		hide.style.top = "-15px";
 		posts.forEach(function (post) {
 			const { title, media, body, id, created, tags } = post;
 			if (post.media) {
@@ -62,7 +69,6 @@ export function filterPosts(posts) {
 	if (filterParam === "no_img") {
 		if (filterParam === "no_img") {
 			container.innerHTML = "";
-			hide.style.top = "-15px";
 			posts.forEach(function (post) {
 				const { title, media, body, id, created, tags } = post;
 				if (!post.media) {
@@ -114,10 +120,8 @@ export function filterPosts(posts) {
 			});
 		}
 	}
-
 	if (filterParam === "old_posts") {
 		container.classList.add("reverse");
-		hide.style.display = "none";
 		hideOld.style.display = "block";
 	}
 }

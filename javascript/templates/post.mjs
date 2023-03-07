@@ -1,6 +1,15 @@
-export function postTemplateA(postData) {
-	const container = document.querySelector("#allPosts");
+const container = document.querySelector("#allPosts");
 
+/**
+ * This function uses data from postsData to display a post in html with and without image.
+ * @param {Object} postData The data of one post.
+ * @param {Element} container This is a html element where all generated posts data are displayed.
+ * @param {Element} hide html element to hide unwanted text.
+ */
+
+export function postTemplate(postData) {
+	const hide = document.querySelector("#hide");
+	hide.style.display = "block";
 	if (postData.media) {
 		container.innerHTML += `<div class="card mb-3 mt-3">
                 <div class="row g-0">
@@ -98,10 +107,11 @@ export function postTemplateA(postData) {
 	}
 }
 
-export function renderPostTemplate(postData, parent) {
-	parent.innerHTML += postTemplateA(postData);
-}
-
+/**
+ * This function loops though the array of multiple posts and give each post a html template.
+ * @param {Array} postDataList This is a array of posts.
+ * @param {Element} parent This is the html location to render the function. (div with id allPosts)
+ */
 export function renderPostTemplates(postDataList, parent) {
-	parent.append(...postDataList.map(postTemplateA));
+	parent.append(...postDataList.map(postTemplate));
 }
