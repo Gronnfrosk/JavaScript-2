@@ -21,6 +21,7 @@ export async function register(profile) {
 	const result = await response.json();
 	if (response.ok) {
 		alert("Welcome to GreenFrog! You are a member and can now login to your profile.");
+		window.location.href = "/html/login.html";
 	} else {
 		alert("Error! Your account was not register.");
 	}

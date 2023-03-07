@@ -48,7 +48,7 @@ export function showSearchResults(posts) {
 						</form>
 						</div>
 					</div>
-					<h5 class="card-title">${title}</h5>
+					<a href="/html/specific_post.html?postID=${id}"><h5 class="card-title">${title}</h5></a>
 					<div class="row px-5 pb-4">
 						<img src="${media}" alt="Image for the post: ${title}" class="pe-0">
 					</div>
@@ -96,7 +96,7 @@ export function showSearchResults(posts) {
                         </form>
                         </div>
                     </div>
-                    <h5 class="card-title">${title}</h5>
+                    <a href="/html/specific_post.html?postID=${id}"><h5 class="card-title">${title}</h5></a>
                     <p class="card-text">${body}</p>
                     <p class="card-text">Tags: ${tags}</p>
                     <p class="card-text"><small class="text-muted">Posted: ${created}</small></p>

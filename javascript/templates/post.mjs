@@ -1,5 +1,3 @@
-const container = document.querySelector("#allPosts");
-
 /**
  * This function uses data from postsData to display a post in html with and without image.
  * @param {Object} postData The data of one post.
@@ -8,6 +6,7 @@ const container = document.querySelector("#allPosts");
  */
 
 export function postTemplate(postData) {
+	const container = document.querySelector("#allPosts");
 	const hide = document.querySelector("#hide");
 	hide.style.display = "block";
 	if (postData.media) {
@@ -46,7 +45,7 @@ export function postTemplate(postData) {
                             </form>
                             </div>
                         </div>
-                        <h5 class="card-title">${postData.title}</h5>
+                        <a href="/html/specific_post.html?postID=${postData.id}"><h5 class="card-title">${postData.title}</h5></a>
                         <div class="row px-5 pb-4">
                             <img src="${postData.media}" alt="Image for the post: ${postData.title}" class="pe-0">
                         </div>
@@ -95,7 +94,7 @@ export function postTemplate(postData) {
                         </form>
                         </div>
                     </div>
-                    <h5 class="card-title">${postData.title}</h5>
+                    <a href="/html/specific_post.html?postID=${postData.id}"><h5 class="card-title">${postData.title}</h5></a>
                     <p class="card-text">${postData.body}</p>
                     <p class="card-text">Tags: ${postData.tags}</p>
                     <p class="card-text"><small class="text-muted">Posted: ${postData.created}</small></p>

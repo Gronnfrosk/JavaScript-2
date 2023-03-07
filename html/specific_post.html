@@ -21,7 +21,7 @@
 		<script type="module" src="/javascript/index.mjs" defer></script>
 		<title>GreenFrog | Home page</title>
 	</head>
-	<body>
+	<body class="d-flex flex-column justify-content-between">
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 			<div class="container-fluid">
 				<a class="navbar-brand fw-bold" href="#">GreenFrog</a>
@@ -39,7 +39,7 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="nav navbar-nav me-auto mb-2 mb-lg-0">
 						<li class="nav-item">
-							<a class="nav-link disabled" href="../index.html">Home</a>
+							<a class="nav-link" href="../index.html">Home</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="/html/profile.html">Profile</a>
@@ -48,59 +48,13 @@
 							<a class="nav-link" href="/html/login.html">Logout</a>
 						</li>
 					</ul>
-					<form class="d-flex search_form" role="search" id="search_form">
-						<input class="form-control me-2" type="search" placeholder="Search for post title or id" aria-label="Search" />
-					</form>
 				</div>
 			</div>
 		</nav>
-		<header class="text-center">
-			<i class="fa-duotone fa-frog text-success"> </i>
-			<h2>Welcome to GreenFrog</h2>
-		</header>
-		<main class="main-home">
-			<div class="posts">
-				<form id="create">
-					<div class="mb-3">
-						<label class="form-label">Post title</label>
-						<input type="text" name="title" class="form-control" placeholder="Title..." required />
-					</div>
-					<div class="mb-3">
-						<label class="form-label">Post message</label>
-						<textarea name="body" class="form-control" placeholder="Message..." required></textarea>
-					</div>
-													
-					<div class="mb-3">
-						<label class="form-label">Tags</label>
-						<input type="text" name="tags" class="form-control" placeholder="Tag1 tag2 . . ."></input>
-					</div>
-					
-					<div class="mb-3">
-						<label class="form-label">Media</label>
-						<input type="url" name="media" class="form-control"></input>
-					</div>
-					
-					<div class=" text-end">
-						<button class="btn btn-info">Create new post</button>
-					</div>
-				</form>
-				<h2 class="mt-5">Post feed</h2>
-				<div class="dropdown w-100 d-flex justify-content-end">
-					<button class="btn dropdown-toggle fw-bold" type="button" data-bs-toggle="dropdown" aria-expanded="false">Filter</button>
-					<ul class="dropdown-menu" aria-labelledby="filterPost">
-						<li><a href="index.html" class="dropdown-item" id="">Latest posts</a></li>
-						<ul class="">
-							<li><a href="index.html?filter=no_img" class="dropdown-item" id="">Posts without image</a></li>
-							<li><a href="index.html?filter=with_img" class="dropdown-item" id="">Posts with image</a></li>
-						</ul>
-						<li><a href="index.html?filter=old_posts" class="dropdown-item" id="">Oldest posts</a></li>
-					</ul>
-				</div>
-				<div class="hideOld" id="hideOld">undefinedundefinedundefinedundefinedundefinedundefinedundefinedundefi</div>
-				<div class="allPosts" id="allPosts"></div>
-				<div class="hide" id="hide">undefinedundefinedundefinedundefinedundefinedundefinedundefinedundefi</div>
-			</div>
+		<main>
+			<div class="allPosts specific-post-card" id="allPosts"></div>
 		</main>
+		<div class="hide mt-3" id="hide"></div>
 		<footer class="d-flex flex-wrap justify-content-between align-items-center pt-3 border-top w-75 mx-auto" style="margin-top: 75px">
 			<p class="col-md-4 mb-0 text-muted">&copy; 2023 GreenFrog, Inc</p>
 

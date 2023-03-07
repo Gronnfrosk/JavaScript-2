@@ -11,6 +11,11 @@ header i {
   font-size: 3em;
 }
 
+.card-body a {
+  text-decoration: none !important;
+  color: black;
+}
+
 .posts {
   max-width: 540px;
   margin: 0 auto;
@@ -57,6 +62,14 @@ header i {
 .reverse {
   display: flex;
   flex-direction: column-reverse;
+}
+
+/*Specific_post page*/
+.specific-post-card {
+  width: 500px;
+  margin: 0 auto;
+  padding-top: 100px;
+  min-height: 700px;
 }
 
 /*Profile page*/
@@ -129,7 +142,7 @@ footer {
 
 @media (min-width: 991px) {
   .search_form {
-    width: 225px;
+    width: 300px;
   }
   .bd-placeholder-img-lg {
     font-size: 3.5rem;

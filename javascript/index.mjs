@@ -39,4 +39,10 @@ if (path === "/html/login.html") {
 		listeners.setUpdatePostFormListener();
 	}
 	postFeatures();
+
+	if (path === "/html/profile.html") {
+		templates.displayProfile();
+	}
+} else if (path === "/html/specific_post.html") {
+	listeners.displaySpecificPost();
 }
