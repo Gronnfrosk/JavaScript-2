@@ -19,6 +19,7 @@ if (path === "/html/login.html") {
 } else if (path === "/index.html" || path === "/html/profile.html") {
 	listeners.checkUser();
 	listeners.logout();
+	templates.displayProfile();
 
 	async function postFeatures() {
 		//show post feed
