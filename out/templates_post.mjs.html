@@ -26,62 +26,74 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
+            <pre class="prettyprint source linenums"><code>import { load } from "../storage/token.mjs";
+
+/**
  * This function uses data from postsData to display a post in html with and without image.
- * @param {Object} postData The data of one post.
+ * @param {Object} post The data of one post.
+ *  * @param {Array} Array This is a list of data of a post.
  * @param {Element} container This is a html element where all generated posts data are displayed.
  * @param {Element} hide html element to hide unwanted text.
+ *  @param {Object} user This is the value of the key profile in the localStorage
+ * @param {String} editFeature Contains the html content of the edit and delete features.
  */
-
-export function postTemplate(postData) {
+export function postTemplate(post) {
 	const container = document.querySelector("#allPosts");
 	const hide = document.querySelector("#hide");
 	hide.style.display = "block";
-	if (postData.media) {
+	const { id, title, body, tags, media, created, updated, author, reactions, _count } = post;
+	const { name, avatar } = author;
+	const user = load("profile");
+	let editFeature = `
+                    &lt;div class="float-end" id="edit">
+                        &lt;div title="Delete button">
+                            &lt;i class="fa-solid fa-trash-can py-2 delete-btn" id="${id}">&lt;/i>
+                        &lt;/div>
+                        &lt;div class="dropdown">
+                        &lt;i class="fa-solid fa-pencil py-2 edit-btn dropdown-toggle" id="${id}" title="Update button" data-bs-toggle="dropdown">&lt;/i>
+                        &lt;form class="dropdown-menu" id="update">
+                            &lt;div class="mb-3 mx-4">
+                                &lt;label class="form-label">Post title&lt;/label>
+                                &lt;input type="text" name="title" class="form-control" placeholder="${title}" />
+                            &lt;/div>
+                            &lt;div class="mb-3 mx-4">
+                                &lt;label class="form-label">Post message&lt;/label>
+                                &lt;textarea name="body" class="form-control" placeholder="${body}" >&lt;/textarea>
+                            &lt;/div>
+                                                            
+                            &lt;div class="mb-3 mx-4">
+                                &lt;label class="form-label">Tags&lt;/label>
+                                &lt;input type="text" name="tags" class="form-control" placeholder="${tags}">&lt;/input>
+                            &lt;/div>
+                            
+                            &lt;div class="mb-3 mx-4">
+                                &lt;label class="form-label">Media&lt;/label>
+                                &lt;input type="url" name="media" class="form-control" placeholder="${media}">&lt;/input>
+                            &lt;/div>
+                            
+                            &lt;div class="pb-4 text-end mx-3">
+                                &lt;button class="btn btn-info">Update post&lt;/button>
+                            &lt;/div>
+                        &lt;/form>
+                        &lt;/div>
+                    &lt;/div>`;
+	if (user.name !== name) {
+		editFeature = "";
+	}
+	if (media) {
 		container.innerHTML += `&lt;div class="card mb-3 mt-3">
                 &lt;div class="row g-0">
                     &lt;div class="card-body">
-                        &lt;div class="float-end">
-                            &lt;div title="Delete button. You can't delete other users post">
-                                &lt;i class="fa-solid fa-trash-can py-2 delete-btn" id="${postData.id}">&lt;/i>
-                            &lt;/div>
-                            &lt;div class="dropdown">
-                            &lt;i class="fa-solid fa-pencil py-2 edit-btn dropdown-toggle" id="${postData.id}" title="Edit button. You can't edit other users post" data-bs-toggle="dropdown">&lt;/i>
-                            &lt;form class="dropdown-menu" id="update">
-                                &lt;div class="mb-3 mx-4">
-                                    &lt;label class="form-label">Post title&lt;/label>
-                                    &lt;input type="text" name="title" class="form-control" placeholder="${postData.title}" />
-                                &lt;/div>
-                                &lt;div class="mb-3 mx-4">
-                                    &lt;label class="form-label">Post message&lt;/label>
-                                    &lt;textarea name="body" class="form-control" placeholder="${postData.body}" >&lt;/textarea>
-                                &lt;/div>
-                                                                
-                                &lt;div class="mb-3 mx-4">
-                                    &lt;label class="form-label">Tags&lt;/label>
-                                    &lt;input type="text" name="tags" class="form-control" placeholder="${postData.tags}">&lt;/input>
-                                &lt;/div>
-                                
-                                &lt;div class="mb-3 mx-4">
-                                    &lt;label class="form-label">Media&lt;/label>
-                                    &lt;input type="url" name="media" class="form-control" placeholder="${postData.media}">&lt;/input>
-                                &lt;/div>
-                                
-                                &lt;div class="pb-4 text-end mx-3">
-                                    &lt;button class="btn btn-info">Update post&lt;/button>
-                                &lt;/div>
-                            &lt;/form>
-                            &lt;/div>
-                        &lt;/div>
-                        &lt;a href="/html/specific_post.html?postID=${postData.id}">&lt;h5 class="card-title">${postData.title}&lt;/h5>&lt;/a>
+                    ${editFeature}
+                        &lt;a href="/html/specific_post.html?postID=${id}">&lt;h5 class="card-title">${title}&lt;/h5>&lt;/a>
                         &lt;div class="row px-5 pb-4">
-                            &lt;img src="${postData.media}" alt="Image for the post: ${postData.title}" class="pe-0">
+                            &lt;img src="${media}" alt="Image for the post: ${title}" class="pe-0">
                         &lt;/div>
-                        &lt;p class="card-text">${postData.body}&lt;/p>
-                        &lt;p class="card-text">Tags: ${postData.tags}&lt;/p>
-                        &lt;p class="card-text">&lt;small class="text-muted">Posted: ${postData.created}&lt;/small>&lt;/p>
+                        &lt;p class="card-text">${body}&lt;/p>
+                        &lt;p class="card-text">Tags: ${tags}&lt;/p>
+                        &lt;p class="card-text">&lt;small class="text-muted">Posted: ${created}&lt;/small>&lt;/p>
                         &lt;i class="fa-regular fa-user float-end text-info mx-1">&lt;/i>
-                        &lt;p class="card-text float-end mx-2">Someone&lt;/p>
+                        &lt;p class="card-text float-end mx-2">${name}&lt;/p>
                     &lt;/div>
                 &lt;/div>
             &lt;/div>`;
@@ -90,44 +102,13 @@ export function postTemplate(postData) {
         &lt;div class="card mb-3 mt-3">
             &lt;div class="row g-0">
                 &lt;div class="card-body">
-                    &lt;div class="float-end">
-                    &lt;div title="Delete button. You can't delete other users post">
-                        &lt;i class="fa-solid fa-trash-can py-2 delete-btn" id="${postData.id}">&lt;/i>
-                    &lt;/div>
-                    &lt;div class="dropdown">
-                        &lt;i class="fa-solid fa-pencil py-2 edit-btn dropdown-toggle" id="${postData.id}" title="Edit button. You can't edit other users post" data-bs-toggle="dropdown">&lt;/i>
-                        &lt;form class="dropdown-menu" id="update">
-                            &lt;div class="mb-3 mx-4">
-                                &lt;label class="form-label">Post title&lt;/label>
-                                &lt;input type="text" name="title" class="form-control" placeholder="${postData.title}"  />
-                            &lt;/div>
-                            &lt;div class="mb-3 mx-4">
-                                &lt;label class="form-label">Post message&lt;/label>
-                                &lt;textarea name="body" class="form-control" placeholder="${postData.body}" >&lt;/textarea>
-                            &lt;/div>
-                                                            
-                            &lt;div class="mb-3 mx-4">
-                                &lt;label class="form-label">Tags&lt;/label>
-                                &lt;input type="text" name="tags" class="form-control" placeholder="${postData.tags}">&lt;/input>
-                            &lt;/div>
-                            
-                            &lt;div class="mb-3 mx-4">
-                                &lt;label class="form-label">Media&lt;/label>
-                                &lt;input type="url" name="media" class="form-control">&lt;/input>
-                            &lt;/div>
-                            
-                            &lt;div class="pb-4 text-end mx-3">
-                                &lt;button class="btn btn-info">Update post&lt;/button>
-                            &lt;/div>
-                        &lt;/form>
-                        &lt;/div>
-                    &lt;/div>
-                    &lt;a href="/html/specific_post.html?postID=${postData.id}">&lt;h5 class="card-title">${postData.title}&lt;/h5>&lt;/a>
-                    &lt;p class="card-text">${postData.body}&lt;/p>
-                    &lt;p class="card-text">Tags: ${postData.tags}&lt;/p>
-                    &lt;p class="card-text">&lt;small class="text-muted">Posted: ${postData.created}&lt;/small>&lt;/p>
+                ${editFeature}
+                    &lt;a href="/html/specific_post.html?postID=${id}">&lt;h5 class="card-title">${title}&lt;/h5>&lt;/a>
+                    &lt;p class="card-text">${body}&lt;/p>
+                    &lt;p class="card-text">Tags: ${tags}&lt;/p>
+                    &lt;p class="card-text">&lt;small class="text-muted">Posted: ${created}&lt;/small>&lt;/p>
                     &lt;i class="fa-regular fa-user float-end text-info mx-1">&lt;/i>
-                    &lt;p class="card-text float-end mx-2">Someone&lt;/p>
+                    &lt;p class="card-text float-end mx-2">${name}&lt;/p>
                 &lt;/div>
             &lt;/div>
         &lt;/div>`;
@@ -158,7 +139,7 @@ export function renderPostTemplates(postDataList, parent) {
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Tue Mar 07 2023 23:48:35 GMT+0100 (sentraleuropeisk normaltid)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Thu Mar 09 2023 16:55:44 GMT+0100 (sentraleuropeisk normaltid)
 </footer>
 
 <script> prettyPrint(); </script>
