@@ -1,21 +1,16 @@
 // Read post
-import { API_SOCIAL_URL, API_SOCIAL_POSTS } from "../constants.mjs";
+import { API_SOCIAL_POSTS_MORE_DETAILS, API_SOCIAL_POSTS, API_SOCIAL_POSTS_MORE_DETAILS_END } from "../constants.mjs";
 import { authFetch } from "../auth_fetch.mjs";
 import { load } from "../../storage/token.mjs";
 import * as searchPosts from "../../modules/index.mjs";
 import * as templates from "../../templates/index.mjs";
-
-const action = "/posts";
 
 /**
  * This async function sends an API "Get" request.
  * @param {String} getPostURL This is the url needed for "GET" request.
  */
 export async function getPosts() {
-	const getPostURL = `${API_SOCIAL_URL}${action}`;
-
-	const response = await authFetch(getPostURL);
-
+	const response = await authFetch(API_SOCIAL_POSTS_MORE_DETAILS);
 	return await response.json();
 }
 
@@ -28,7 +23,7 @@ export async function getPost(id) {
 	if (!id) {
 		throw new Error("Get requires an ID!");
 	}
-	const getPostURL = `${API_SOCIAL_URL}${action}/${id}`;
+	const getPostURL = `${API_SOCIAL_POSTS}/${id}${API_SOCIAL_POSTS_MORE_DETAILS_END}`;
 
 	const response = await authFetch(getPostURL);
 
@@ -53,7 +48,7 @@ export async function searchFilter() {
 			},
 		};
 
-		const response = await fetch(API_SOCIAL_POSTS, fetchPosts);
+		const response = await fetch(API_SOCIAL_POSTS_MORE_DETAILS, fetchPosts);
 		const result = await response.json();
 
 		searchPosts.searchPosts(result);

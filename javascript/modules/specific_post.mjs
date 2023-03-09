@@ -22,21 +22,19 @@ export async function displaySpecificPost() {
 	const post = await postMethods.getPost(id);
 	templates.postTemplate(post);
 
-	console.log(queryString);
-	console.log(params);
-	console.log(post);
-
 	//Delete Post
 	const deleteBtn = document.querySelector(".delete-btn");
-	deleteBtn.addEventListener("click", () => {
-		const deleteConfirm = "Are you sure you want to delete this post?";
+	if (deleteBtn) {
+		deleteBtn.addEventListener("click", () => {
+			const deleteConfirm = "Are you sure you want to delete this post?";
 
-		if (confirm(deleteConfirm)) {
-			removePost(id);
-			alert("Your post was successfully deleted.");
-			window.location.href = "/index.html";
-		}
-	});
+			if (confirm(deleteConfirm)) {
+				removePost(id);
+				alert("Your post was successfully deleted.");
+				window.location.href = "/index.html";
+			}
+		});
+	}
 	// Update post
 	listeners.setUpdatePostFormListener();
 }
