@@ -31,10 +31,10 @@
 /**
  * This function uses data from postsData to display a post in html with and without image.
  * @param {Object} post The data of one post.
- *  * @param {Array} Array This is a list of data of a post.
  * @param {Element} container This is a html element where all generated posts data are displayed.
  * @param {Element} hide html element to hide unwanted text.
- *  @param {Object} user This is the value of the key profile in the localStorage
+ * @param {String} dateFormat The format of when the post was created.
+ * @param {Object} user This is the value of the key profile in the localStorage
  * @param {String} editFeature Contains the html content of the edit and delete features.
  */
 export function postTemplate(post) {
@@ -43,6 +43,8 @@ export function postTemplate(post) {
 	hide.style.display = "block";
 	const { id, title, body, tags, media, created, updated, author, reactions, _count } = post;
 	const { name, avatar } = author;
+	const date = new Date(created);
+	const dateFormat = date.toLocaleDateString("en-GB");
 	const user = load("profile");
 	let editFeature = `
                     &lt;div class="float-end" id="edit">
@@ -91,7 +93,7 @@ export function postTemplate(post) {
                         &lt;/div>
                         &lt;p class="card-text">${body}&lt;/p>
                         &lt;p class="card-text">Tags: ${tags}&lt;/p>
-                        &lt;p class="card-text">&lt;small class="text-muted">Posted: ${created}&lt;/small>&lt;/p>
+                        &lt;p class="card-text">&lt;small class="text-muted">Posted: ${dateFormat}&lt;/small>&lt;/p>
                         &lt;i class="fa-regular fa-user float-end text-info mx-1">&lt;/i>
                         &lt;p class="card-text float-end mx-2">${name}&lt;/p>
                     &lt;/div>
@@ -106,7 +108,7 @@ export function postTemplate(post) {
                     &lt;a href="/html/specific_post.html?postID=${id}">&lt;h5 class="card-title">${title}&lt;/h5>&lt;/a>
                     &lt;p class="card-text">${body}&lt;/p>
                     &lt;p class="card-text">Tags: ${tags}&lt;/p>
-                    &lt;p class="card-text">&lt;small class="text-muted">Posted: ${created}&lt;/small>&lt;/p>
+                    &lt;p class="card-text">&lt;small class="text-muted">Posted: ${dateFormat}&lt;/small>&lt;/p>
                     &lt;i class="fa-regular fa-user float-end text-info mx-1">&lt;/i>
                     &lt;p class="card-text float-end mx-2">${name}&lt;/p>
                 &lt;/div>
@@ -133,13 +135,13 @@ export function renderPostTemplates(postDataList, parent) {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#checkUser">checkUser</a></li><li><a href="global.html#cratePost()ThisfunctionSendsAPIrequest%2522POST%2522withpostdata.">cratePost() This function Sends API request "POST" with post data.</a></li><li><a href="global.html#createPost">createPost</a></li><li><a href="global.html#filterPosts">filterPosts</a></li><li><a href="global.html#getPost">getPost</a></li><li><a href="global.html#getPosts">getPosts</a></li><li><a href="global.html#headers">headers</a></li><li><a href="global.html#headers()ThisfunctioncontainstheheaderforHTTPrequestmethods.">headers() This function contains the header for HTTP request methods.</a></li><li><a href="global.html#load">load</a></li><li><a href="global.html#login">login</a></li><li><a href="global.html#login()ThisfunctionsendstheprofiledatatoanAPI%2522POST%2522methodandinformswhethertheloginwassuccessfulornot.">login() This function sends the profile data to an API "POST" method and informs whether the login was successful or not.</a></li><li><a href="global.html#logout">logout</a></li><li><a href="global.html#postTemplate">postTemplate</a></li><li><a href="global.html#register">register</a></li><li><a href="global.html#register()ThisfunctionsendstheprofiledatatoanAPI%2522POST%2522methodandinformswhethertheregistrationwassuccessfulornot.">register() This function sends the profile data to an API "POST" method and informs whether the registration was successful or not.</a></li><li><a href="global.html#remove">remove</a></li><li><a href="global.html#removePost">removePost</a></li><li><a href="global.html#removePost()ThisfunctionsendsAPI%2522DELETE%2522requestwithapostid.">removePost() This function sends API "DELETE" request with a post id.</a></li><li><a href="global.html#renderPostTemplates">renderPostTemplates</a></li><li><a href="global.html#save">save</a></li><li><a href="global.html#setUpdatePostFormListener">setUpdatePostFormListener</a></li><li><a href="global.html#showSearchResults">showSearchResults</a></li><li><a href="global.html#showSearchResults()Thisisafunctionfordisplayingeachpostswithandwithoutimage/media">showSearchResults() This is a function for displaying each posts with and without image/media</a></li><li><a href="global.html#updatePost">updatePost</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#checkUser">checkUser</a></li><li><a href="global.html#cratePost()ThisfunctionSendsAPIrequest%2522POST%2522withpostdata.">cratePost() This function Sends API request "POST" with post data.</a></li><li><a href="global.html#createPost">createPost</a></li><li><a href="global.html#displayProfile">displayProfile</a></li><li><a href="global.html#filterPosts">filterPosts</a></li><li><a href="global.html#getPost">getPost</a></li><li><a href="global.html#getPosts">getPosts</a></li><li><a href="global.html#headers">headers</a></li><li><a href="global.html#headers()ThisfunctioncontainstheheaderforHTTPrequestmethods.">headers() This function contains the header for HTTP request methods.</a></li><li><a href="global.html#load">load</a></li><li><a href="global.html#login">login</a></li><li><a href="global.html#login()ThisfunctionsendstheprofiledatatoanAPI%2522POST%2522methodandinformswhethertheloginwassuccessfulornot.">login() This function sends the profile data to an API "POST" method and informs whether the login was successful or not.</a></li><li><a href="global.html#logout">logout</a></li><li><a href="global.html#postTemplate">postTemplate</a></li><li><a href="global.html#register">register</a></li><li><a href="global.html#register()ThisfunctionsendstheprofiledatatoanAPI%2522POST%2522methodandinformswhethertheregistrationwassuccessfulornot.">register() This function sends the profile data to an API "POST" method and informs whether the registration was successful or not.</a></li><li><a href="global.html#remove">remove</a></li><li><a href="global.html#removePost">removePost</a></li><li><a href="global.html#removePost()ThisfunctionsendsAPI%2522DELETE%2522requestwithapostid.">removePost() This function sends API "DELETE" request with a post id.</a></li><li><a href="global.html#renderPostTemplates">renderPostTemplates</a></li><li><a href="global.html#save">save</a></li><li><a href="global.html#setUpdatePostFormListener">setUpdatePostFormListener</a></li><li><a href="global.html#showSearchResults">showSearchResults</a></li><li><a href="global.html#showSearchResults()Thisisafunctionfordisplayingeachpostswithandwithoutimage/media">showSearchResults() This is a function for displaying each posts with and without image/media</a></li><li><a href="global.html#updatePost">updatePost</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Thu Mar 09 2023 16:55:44 GMT+0100 (sentraleuropeisk normaltid)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Fri Mar 10 2023 17:25:01 GMT+0100 (sentraleuropeisk normaltid)
 </footer>
 
 <script> prettyPrint(); </script>

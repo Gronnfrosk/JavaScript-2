@@ -5,7 +5,8 @@ import { load } from "../storage/token.mjs";
  * @param {Object} post The data of one post.
  * @param {Element} container This is a html element where all generated posts data are displayed.
  * @param {Element} hide html element to hide unwanted text.
- *  @param {Object} user This is the value of the key profile in the localStorage
+ * @param {String} dateFormat The format of when the post was created.
+ * @param {Object} user This is the value of the key profile in the localStorage
  * @param {String} editFeature Contains the html content of the edit and delete features.
  */
 export function postTemplate(post) {

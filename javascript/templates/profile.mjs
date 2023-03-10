@@ -1,5 +1,11 @@
 import { load } from "../storage/token.mjs";
 
+/**
+ * This function uses post title and id to display the search results when keypress.
+ * @param {Element} profileContainer This is a html element where profile details are displayed.
+ * @param {Element} profileAvatar This is a html element where avatar image are displayed.
+ * @param {Object} profile This is data of user obtained from the profile value in localStorage.
+ */
 export function displayProfile() {
 	const profileContainer = document.querySelector("#profile-detail");
 	const profileAvatar = document.querySelector("#avatar");

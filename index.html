@@ -49,7 +49,7 @@
 						</li>
 					</ul>
 					<form class="d-flex search_form" role="search" id="search_form">
-						<input class="form-control me-2" type="search" placeholder="Search for post title or id" aria-label="Search" />
+						<input class="form-control me-2" type="search" placeholder="Search for post title or id" aria-label="Search" id="search_input"/>
 					</form>
 				</div>
 			</div>
@@ -76,30 +76,30 @@
 					<button type="button" class="btn btn-outline-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
 						Create new post
 					</button>
-				<form class="dropdown-menu createForm" id="create">
-					<div class="mb-3 mx-4">
-						<label class="form-label">Post title</label>
-						<input type="text" name="title" class="form-control" placeholder="Title..." required />
-					</div>
-					<div class="mb-3 mx-4">
-						<label class="form-label">Post message</label>
-						<textarea name="body" class="form-control" placeholder="Message..." required></textarea>
-					</div>
-													
-					<div class="mb-3 mx-4">
-						<label class="form-label">Tags</label>
-						<input type="text" name="tags" class="form-control" placeholder="Tag1 tag2 . . ."></input>
-					</div>
-					
-					<div class="mb-3 mx-4">
-						<label class="form-label">Media</label>
-						<input type="url" name="media" class="form-control"></input>
-					</div>
-					
-					<div class="pb-4 text-end mx-3">
-						<button class="btn btn-info">Create new post</button>
-					</div>
-				</form>
+					<form class="dropdown-menu createForm" id="create">
+						<div class="mb-3 mx-4">
+							<label class="form-label">Post title</label>
+							<input type="text" name="title" class="form-control" placeholder="Title..." required />
+						</div>
+						<div class="mb-3 mx-4">
+							<label class="form-label">Post message</label>
+							<textarea name="body" class="form-control" placeholder="Message..." required></textarea>
+						</div>
+														
+						<div class="mb-3 mx-4">
+							<label class="form-label">Tags</label>
+							<input type="text" name="tags" class="form-control" placeholder="Tag1 tag2 . . ."></input>
+						</div>
+						
+						<div class="mb-3 mx-4">
+							<label class="form-label">Media</label>
+							<input type="url" name="media" class="form-control"></input>
+						</div>
+						
+						<div class="pb-4 text-end mx-3">
+							<button class="btn btn-info">Create new post</button>
+						</div>
+					</form>
 				</div>
 				<div class="hideOld" id="hideOld">undefinedundefinedundefinedundefinedundefinedundefinedundefinedundefi</div>
 				<div class="allPosts" id="allPosts"></div>
