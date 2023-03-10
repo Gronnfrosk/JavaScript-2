@@ -3,7 +3,6 @@ import { load } from "../storage/token.mjs";
 /**
  * This function uses data from postsData to display a post in html with and without image.
  * @param {Object} post The data of one post.
- *  * @param {Array} Array This is a list of data of a post.
  * @param {Element} container This is a html element where all generated posts data are displayed.
  * @param {Element} hide html element to hide unwanted text.
  *  @param {Object} user This is the value of the key profile in the localStorage
@@ -15,6 +14,8 @@ export function postTemplate(post) {
 	hide.style.display = "block";
 	const { id, title, body, tags, media, created, updated, author, reactions, _count } = post;
 	const { name, avatar } = author;
+	const date = new Date(created);
+	const dateFormat = date.toLocaleDateString("en-GB");
 	const user = load("profile");
 	let editFeature = `
                     <div class="float-end" id="edit">
@@ -63,7 +64,7 @@ export function postTemplate(post) {
                         </div>
                         <p class="card-text">${body}</p>
                         <p class="card-text">Tags: ${tags}</p>
-                        <p class="card-text"><small class="text-muted">Posted: ${created}</small></p>
+                        <p class="card-text"><small class="text-muted">Posted: ${dateFormat}</small></p>
                         <i class="fa-regular fa-user float-end text-info mx-1"></i>
                         <p class="card-text float-end mx-2">${name}</p>
                     </div>
@@ -78,7 +79,7 @@ export function postTemplate(post) {
                     <a href="/html/specific_post.html?postID=${id}"><h5 class="card-title">${title}</h5></a>
                     <p class="card-text">${body}</p>
                     <p class="card-text">Tags: ${tags}</p>
-                    <p class="card-text"><small class="text-muted">Posted: ${created}</small></p>
+                    <p class="card-text"><small class="text-muted">Posted: ${dateFormat}</small></p>
                     <i class="fa-regular fa-user float-end text-info mx-1"></i>
                     <p class="card-text float-end mx-2">${name}</p>
                 </div>
