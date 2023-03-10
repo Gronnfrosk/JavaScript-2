@@ -8,8 +8,8 @@ const filterParam = params.get("filter");
 /**
  * This function gets data from posts and filters posts with, without image/media and oldest by query string.
  * @param {Array} posts Array of posts data.
- * @param {Array} Array This is a list of data of one post.
  * @param {Element} container This is a html element where all generated posts data are displayed.
+ * @param {String} dateFormat The format of when the post was created.
  * @param {Element} hideOld html element to hide unwanted text.
  * @param {Object} user This is the value of the key profile in the localStorage
  * @param {String} editFeature Contains the html content of the edit and delete features.
@@ -21,6 +21,8 @@ export function filterPosts(posts) {
 			const { id, title, body, tags, media, created, updated, author, reactions, _count } = post;
 			const { name, avatar } = author;
 			const user = load("profile");
+			const date = new Date(created);
+			const dateFormat = date.toLocaleDateString("en-GB");
 			let editFeature = `
                     <div class="float-end" id="edit">
                         <div title="Delete button">
@@ -68,7 +70,7 @@ export function filterPosts(posts) {
                         </div>
                         <p class="card-text">${body}</p>
                         <p class="card-text">Tags: ${tags}</p>
-                        <p class="card-text"><small class="text-muted">Posted: ${created}</small></p>
+                        <p class="card-text"><small class="text-muted">Posted: ${dateFormat}</small></p>
                         <i class="fa-regular fa-user float-end text-info mx-1"></i>
                         <p class="card-text float-end mx-2">${name}</p>
                     </div>
@@ -129,7 +131,7 @@ export function filterPosts(posts) {
                     <a href="/html/specific_post.html?postID=${id}"><h5 class="card-title">${title}</h5></a>
                     <p class="card-text">${body}</p>
                     <p class="card-text">Tags: ${tags}</p>
-                    <p class="card-text"><small class="text-muted">Posted: ${created}</small></p>
+                    <p class="card-text"><small class="text-muted">Posted: ${dateFormat}</small></p>
                     <i class="fa-regular fa-user float-end text-info mx-1"></i>
                     <p class="card-text float-end mx-2">${name}</p>
                 </div>

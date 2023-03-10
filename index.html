@@ -49,42 +49,18 @@
 						</li>
 					</ul>
 					<form class="d-flex search_form" role="search" id="search_form">
-						<input class="form-control me-2" type="search" placeholder="Search for post title or id" aria-label="Search" />
+						<input class="form-control me-2" type="search" placeholder="Search for post title or id" aria-label="Search" id="search_input"/>
 					</form>
 				</div>
 			</div>
 		</nav>
 		<header class="text-center">
 			<i class="fa-duotone fa-frog text-success"> </i>
-			<h2>Welcome to GreenFrog</h2>
+			<h1>Welcome to GreenFrog</h1>
 		</header>
 		<main class="main-home">
 			<div class="posts">
-				<form id="create">
-					<div class="mb-3">
-						<label class="form-label">Post title</label>
-						<input type="text" name="title" class="form-control" placeholder="Title..." required />
-					</div>
-					<div class="mb-3">
-						<label class="form-label">Post message</label>
-						<textarea name="body" class="form-control" placeholder="Message..." required></textarea>
-					</div>
-													
-					<div class="mb-3">
-						<label class="form-label">Tags</label>
-						<input type="text" name="tags" class="form-control" placeholder="Tag1 tag2 . . ."></input>
-					</div>
-					
-					<div class="mb-3">
-						<label class="form-label">Media</label>
-						<input type="url" name="media" class="form-control"></input>
-					</div>
-					
-					<div class=" text-end">
-						<button class="btn btn-info">Create new post</button>
-					</div>
-				</form>
-				<h2 class="mt-5">Post feed</h2>
+				<h2 class="mt-5 postFeed">Post feed</h2>
 				<div class="dropdown w-100 d-flex justify-content-end">
 					<button class="btn dropdown-toggle fw-bold" type="button" data-bs-toggle="dropdown" aria-expanded="false">Filter</button>
 					<ul class="dropdown-menu" aria-labelledby="filterPost">
@@ -95,6 +71,35 @@
 						</ul>
 						<li><a href="index.html?filter=old_posts" class="dropdown-item" id="">Oldest posts</a></li>
 					</ul>
+				</div>
+				<div class="createForm dropdown mt-2">
+					<button type="button" class="btn btn-outline-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+						Create new post
+					</button>
+					<form class="dropdown-menu createForm" id="create">
+						<div class="mb-3 mx-4">
+							<label class="form-label">Post title</label>
+							<input type="text" name="title" class="form-control" placeholder="Title..." required />
+						</div>
+						<div class="mb-3 mx-4">
+							<label class="form-label">Post message</label>
+							<textarea name="body" class="form-control" placeholder="Message..." required></textarea>
+						</div>
+														
+						<div class="mb-3 mx-4">
+							<label class="form-label">Tags</label>
+							<input type="text" name="tags" class="form-control" placeholder="Tag1 tag2 . . ."></input>
+						</div>
+						
+						<div class="mb-3 mx-4">
+							<label class="form-label">Media</label>
+							<input type="url" name="media" class="form-control"></input>
+						</div>
+						
+						<div class="pb-4 text-end mx-3">
+							<button class="btn btn-info">Create new post</button>
+						</div>
+					</form>
 				</div>
 				<div class="hideOld" id="hideOld">undefinedundefinedundefinedundefinedundefinedundefinedundefinedundefi</div>
 				<div class="allPosts" id="allPosts"></div>

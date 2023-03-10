@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: api/auth/login.mjs</title>
+    <title>JSDoc: Source: templates/profile.mjs</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: api/auth/login.mjs</h1>
+    <h1 class="page-title">Source: templates/profile.mjs</h1>
 
     
 
@@ -26,40 +26,28 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { API_SOCIAL_URL } from "../constants.mjs";
-import * as storage from "../../storage/token.mjs";
-
-const action = "/auth/login";
-const method = "post";
+            <pre class="prettyprint source linenums"><code>import { load } from "../storage/token.mjs";
 
 /**
- * This async function sends an API "POST" request and informs if successful or not.
- * @param {Object} profile The data that will be sent to the "POST" request.
- * @param {String} loginURL This is the url needed for "POST" request.
- * @param {String} method The HTTP request method "POST".
- * @param {string} accessToken This is the localStorage access token value.
- * @param {string} user This is the localStorage user profile data value.
+ * This function uses post title and id to display the search results when keypress.
+ * @param {Element} profileContainer This is a html element where profile details are displayed.
+ * @param {Element} profileAvatar This is a html element where avatar image are displayed.
+ * @param {Object} profile This is data of user obtained from the profile value in localStorage.
  */
-export async function login(profile) {
-	const loginURL = API_SOCIAL_URL + action;
+export function displayProfile() {
+	const profileContainer = document.querySelector("#profile-detail");
+	const profileAvatar = document.querySelector("#avatar");
+	const profile = load("profile");
 
-	const response = await fetch(loginURL, {
-		headers: { "Content-type": "application/json" },
-		method,
-		body: JSON.stringify(profile),
-	});
-
-	const { accessToken, ...user } = await response.json();
-
-	storage.save("token", accessToken);
-	storage.save("profile", user);
-
-	if (response.ok) {
-		window.location.href = "/index.html";
-		alert("Welcome to GreenFrog! You are now logged in.");
+	if (profile.avatar) {
+		profileAvatar.innerHTML += `&lt;img src="${profile.avatar}" alt="Image for the user: ${profile.name}" class="pe-0">`;
 	} else {
-		alert("Error! The combination of user name and password may be incorrect or user is not registered at GreenFrog.");
+		profileAvatar.innerHTML += `&lt;i class="fa-regular fa-user">&lt;/i>`;
 	}
+
+	profileContainer.innerHTML += `&lt;div class="fw-bold">- Name: ${profile.name}&lt;/div>
+                                    &lt;div class="fw-bold">- Email: ${profile.email}&lt;/div>
+                                    &lt;div class="m-3"> &lt;b>Bio:&lt;/b> &lt;br> Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...&lt;/div>`;
 }
 </code></pre>
         </article>

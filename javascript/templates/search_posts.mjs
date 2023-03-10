@@ -6,9 +6,9 @@ const hide = document.querySelector("#hide");
 /**
  * This function uses data from searched posts to display each post in html with and without image.
  * @param {Array} posts Array of searched posts.
- * @param {Array} Array This is a list of data of a post.
  * @param {Element} container This is a html element where all generated posts data are displayed.
  * @param {Element} hide html element to hide unwanted text.
+ * @param {String} dateFormat The format of when the post was created.
  * @param {Object} user This is the value of the key profile in the localStorage
  * @param {String} editFeature Contains the html content of the edit and delete features.
  */
@@ -20,6 +20,8 @@ export function showSearchResults(posts) {
 		const { id, title, body, tags, media, created, updated, author, reactions, _count } = posts;
 		const { name, avatar } = author;
 		const user = load("profile");
+		const date = new Date(created);
+		const dateFormat = date.toLocaleDateString("en-GB");
 		let editFeature = `
                     <div class="float-end" id="edit">
                         <div title="Delete button">
@@ -67,7 +69,7 @@ export function showSearchResults(posts) {
                         </div>
                         <p class="card-text">${body}</p>
                         <p class="card-text">Tags: ${tags}</p>
-                        <p class="card-text"><small class="text-muted">Posted: ${created}</small></p>
+                        <p class="card-text"><small class="text-muted">Posted: ${dateFormat}</small></p>
                         <i class="fa-regular fa-user float-end text-info mx-1"></i>
                         <p class="card-text float-end mx-2">${name}</p>
                     </div>
@@ -82,7 +84,7 @@ export function showSearchResults(posts) {
                     <a href="/html/specific_post.html?postID=${id}"><h5 class="card-title">${title}</h5></a>
                     <p class="card-text">${body}</p>
                     <p class="card-text">Tags: ${tags}</p>
-                    <p class="card-text"><small class="text-muted">Posted: ${created}</small></p>
+                    <p class="card-text"><small class="text-muted">Posted: ${dateFormat}</small></p>
                     <i class="fa-regular fa-user float-end text-info mx-1"></i>
                     <p class="card-text float-end mx-2">${name}</p>
                 </div>
