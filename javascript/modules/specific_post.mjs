@@ -20,7 +20,7 @@ export async function displaySpecificPost() {
 	const params = new URLSearchParams(queryString);
 	const id = params.get("postID");
 	const post = await postMethods.getPost(id);
-	templates.postTemplate(post);
+	templates.specificPost(post);
 
 	//Delete Post
 	const deleteBtn = document.querySelector(".delete-btn");

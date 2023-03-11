@@ -1,4 +1,4 @@
-import { showSearchResults } from "../templates/search_posts.mjs";
+import { showPost } from "../templates/post.mjs";
 
 /**
  * This function uses post title and id to display the search results when keypress.
@@ -8,13 +8,15 @@ import { showSearchResults } from "../templates/search_posts.mjs";
  * @param {String} searchInput This is the searched value in lowercase.
  * @param {Number} searchInputNumber This is the searched value in numbers.
  * @param {Function} searchFiltered It filters out posts when post title and search value are included or if post id matches the search number.
- * @function showSearchResults() This is a function for displaying each posts with and without image/media
+ * @function showPost() This is a function for displaying each posts with and without image/media
  */
 export function searchPosts(posts) {
 	const search = document.querySelector("#search_form");
 	const input = document.querySelector("#search_input");
+	const container = document.querySelector("#allPosts");
 
 	search.onkeyup = function (event) {
+		container.innerHTML = "";
 		const searchInput = event.target.value.trim().toLowerCase();
 		const searchInputNumber = parseInt(searchInput);
 		const searchFiltered = posts.filter(function (posts) {
@@ -25,10 +27,11 @@ export function searchPosts(posts) {
 				return true;
 			}
 		});
-		showSearchResults(searchFiltered);
+		showPost(searchFiltered);
 	};
 
 	input.addEventListener("keypress", function (e) {
+		container.innerHTML = "";
 		const searchInput = e.target.value.trim().toLowerCase();
 		const searchInputNumber = parseInt(searchInput);
 		if (e.key === "Enter") {
@@ -41,7 +44,7 @@ export function searchPosts(posts) {
 					return true;
 				}
 			});
-			showSearchResults(searchFiltered);
+			showPost(searchFiltered);
 		}
 	});
 }

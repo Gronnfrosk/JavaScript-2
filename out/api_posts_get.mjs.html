@@ -29,17 +29,24 @@
             <pre class="prettyprint source linenums"><code>// Read post
 import { API_SOCIAL_POSTS_MORE_DETAILS, API_SOCIAL_POSTS, API_SOCIAL_POSTS_MORE_DETAILS_END } from "../constants.mjs";
 import { authFetch } from "../auth_fetch.mjs";
-import { load } from "../../storage/token.mjs";
 import * as searchPosts from "../../modules/index.mjs";
 import * as templates from "../../templates/index.mjs";
 
 /**
  * This async function sends an API "Get" request.
  * @param {String} getPostURL This is the url needed for "GET" request.
+ * @function searchPosts() This function uses post title and id to display the search results.
+ * @function filterPosts() This function gets data from posts and filters posts with, without image/media and oldest by query string.
+ * @function showPost() This function displays all posts.
+ *
  */
 export async function getPosts() {
 	const response = await authFetch(API_SOCIAL_POSTS_MORE_DETAILS);
-	return await response.json();
+	const result = await response.json();
+
+	searchPosts.searchPosts(result);
+	templates.filterPosts(result);
+	templates.showPost(result);
 }
 
 /**
@@ -57,34 +64,6 @@ export async function getPost(id) {
 
 	return await response.json();
 }
-
-/**
- * This async function sends an API "Get" request and sorts them based on search or filter.
- * @param {String} getPostURL This is the url needed for "GET" request.
- * @function searchPosts() This function uses post title and id to display the search results.
- * @function filterPosts() This function gets data from posts and filters posts with, without image/media and oldest by query string.
- */
-export async function searchFilter() {
-	try {
-		const token = load("token");
-
-		const fetchPosts = {
-			method: "GET",
-			headers: {
-				"Content-Type": "application/json",
-				Authorization: `Bearer ${token}`,
-			},
-		};
-
-		const response = await fetch(API_SOCIAL_POSTS_MORE_DETAILS, fetchPosts);
-		const result = await response.json();
-
-		searchPosts.searchPosts(result);
-		templates.filterPosts(result);
-	} catch (error) {
-		console.log(error);
-	}
-}
 </code></pre>
         </article>
     </section>
@@ -95,13 +74,13 @@ export async function searchFilter() {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#checkUser">checkUser</a></li><li><a href="global.html#cratePost()ThisfunctionSendsAPIrequest%2522POST%2522withpostdata.">cratePost() This function Sends API request "POST" with post data.</a></li><li><a href="global.html#createPost">createPost</a></li><li><a href="global.html#displayProfile">displayProfile</a></li><li><a href="global.html#filterPosts">filterPosts</a></li><li><a href="global.html#getPost">getPost</a></li><li><a href="global.html#getPosts">getPosts</a></li><li><a href="global.html#headers">headers</a></li><li><a href="global.html#headers()ThisfunctioncontainstheheaderforHTTPrequestmethods.">headers() This function contains the header for HTTP request methods.</a></li><li><a href="global.html#load">load</a></li><li><a href="global.html#login">login</a></li><li><a href="global.html#login()ThisfunctionsendstheprofiledatatoanAPI%2522POST%2522methodandinformswhethertheloginwassuccessfulornot.">login() This function sends the profile data to an API "POST" method and informs whether the login was successful or not.</a></li><li><a href="global.html#logout">logout</a></li><li><a href="global.html#postTemplate">postTemplate</a></li><li><a href="global.html#register">register</a></li><li><a href="global.html#register()ThisfunctionsendstheprofiledatatoanAPI%2522POST%2522methodandinformswhethertheregistrationwassuccessfulornot.">register() This function sends the profile data to an API "POST" method and informs whether the registration was successful or not.</a></li><li><a href="global.html#remove">remove</a></li><li><a href="global.html#removePost">removePost</a></li><li><a href="global.html#removePost()ThisfunctionsendsAPI%2522DELETE%2522requestwithapostid.">removePost() This function sends API "DELETE" request with a post id.</a></li><li><a href="global.html#renderPostTemplates">renderPostTemplates</a></li><li><a href="global.html#save">save</a></li><li><a href="global.html#setUpdatePostFormListener">setUpdatePostFormListener</a></li><li><a href="global.html#showSearchResults">showSearchResults</a></li><li><a href="global.html#showSearchResults()Thisisafunctionfordisplayingeachpostswithandwithoutimage/media">showSearchResults() This is a function for displaying each posts with and without image/media</a></li><li><a href="global.html#updatePost">updatePost</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#checkUser">checkUser</a></li><li><a href="global.html#cratePost()ThisfunctionSendsAPIrequest%2522POST%2522withpostdata.">cratePost() This function Sends API request "POST" with post data.</a></li><li><a href="global.html#createPost">createPost</a></li><li><a href="global.html#displayProfile">displayProfile</a></li><li><a href="global.html#filterPosts">filterPosts</a></li><li><a href="global.html#getPost">getPost</a></li><li><a href="global.html#headers">headers</a></li><li><a href="global.html#headers()ThisfunctioncontainstheheaderforHTTPrequestmethods.">headers() This function contains the header for HTTP request methods.</a></li><li><a href="global.html#load">load</a></li><li><a href="global.html#login">login</a></li><li><a href="global.html#login()ThisfunctionsendstheprofiledatatoanAPI%2522POST%2522methodandinformswhethertheloginwassuccessfulornot.">login() This function sends the profile data to an API "POST" method and informs whether the login was successful or not.</a></li><li><a href="global.html#logout">logout</a></li><li><a href="global.html#register">register</a></li><li><a href="global.html#register()ThisfunctionsendstheprofiledatatoanAPI%2522POST%2522methodandinformswhethertheregistrationwassuccessfulornot.">register() This function sends the profile data to an API "POST" method and informs whether the registration was successful or not.</a></li><li><a href="global.html#remove">remove</a></li><li><a href="global.html#removePost">removePost</a></li><li><a href="global.html#removePost()ThisfunctionsendsAPI%2522DELETE%2522requestwithapostid.">removePost() This function sends API "DELETE" request with a post id.</a></li><li><a href="global.html#save">save</a></li><li><a href="global.html#setUpdatePostFormListener">setUpdatePostFormListener</a></li><li><a href="global.html#showPost">showPost</a></li><li><a href="global.html#showPost()Thisfunctiondisplaysallposts.">showPost() This function displays all posts.</a></li><li><a href="global.html#showPost()Thisisafunctionfordisplayingeachpostswithandwithoutimage/media">showPost() This is a function for displaying each posts with and without image/media</a></li><li><a href="global.html#specificPost">specificPost</a></li><li><a href="global.html#updatePost">updatePost</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Fri Mar 10 2023 17:25:01 GMT+0100 (sentraleuropeisk normaltid)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Sat Mar 11 2023 14:24:04 GMT+0100 (sentraleuropeisk normaltid)
 </footer>
 
 <script> prettyPrint(); </script>

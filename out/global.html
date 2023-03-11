@@ -859,7 +859,7 @@
     
 
     
-    <h4 class="name" id="filterPosts"><span class="type-signature"></span>filterPosts<span class="signature">(posts, container, dateFormat, hideOld, user, editFeature)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="filterPosts"><span class="type-signature"></span>filterPosts<span class="signature">(post, container, dateFormat, user, postMedia, editFeature)</span><span class="type-signature"></span></h4>
     
 
     
@@ -903,13 +903,13 @@
 
         <tr>
             
-                <td class="name"><code>posts</code></td>
+                <td class="name"><code>post</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Array</span>
+<span class="param-type">Object</span>
 
 
             
@@ -919,7 +919,7 @@
 
             
 
-            <td class="description last">Array of posts data.</td>
+            <td class="description last">The data of posts.</td>
         </tr>
 
     
@@ -972,29 +972,6 @@
 
         <tr>
             
-                <td class="name"><code>hideOld</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Element</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">html element to hide unwanted text.</td>
-        </tr>
-
-    
-
-        <tr>
-            
                 <td class="name"><code>user</code></td>
             
 
@@ -1011,7 +988,30 @@
 
             
 
-            <td class="description last">This is the value of the key profile in the localStorage</td>
+            <td class="description last">This is the value of the key profile in the localStorage.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>postMedia</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">This is the HTML content for post with image.</td>
         </tr>
 
     
@@ -1075,7 +1075,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="templates_filter_posts.mjs.html">templates/filter_posts.mjs</a>, <a href="templates_filter_posts.mjs.html#line17">line 17</a>
+        <a href="templates_filter_posts.mjs.html">templates/filter_posts.mjs</a>, <a href="templates_filter_posts.mjs.html#line16">line 16</a>
     </li></ul></dd>
     
 
@@ -1235,144 +1235,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="api_posts_get.mjs.html">api/posts/get.mjs</a>, <a href="api_posts_get.mjs.html#line22">line 22</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="getPosts"><span class="type-signature"></span>getPosts<span class="signature">(getPostURL)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    This async function sends an API "Get" request.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>getPostURL</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">This is the url needed for "GET" request.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="api_posts_get.mjs.html">api/posts/get.mjs</a>, <a href="api_posts_get.mjs.html#line12">line 12</a>
+        <a href="api_posts_get.mjs.html">api/posts/get.mjs</a>, <a href="api_posts_get.mjs.html#line29">line 29</a>
     </li></ul></dd>
     
 
@@ -2319,258 +2182,6 @@
     
 
     
-    <h4 class="name" id="postTemplate"><span class="type-signature"></span>postTemplate<span class="signature">(post, container, hide, dateFormat, user, editFeature)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    This function uses data from postsData to display a post in html with and without image.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>post</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The data of one post.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>container</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Element</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">This is a html element where all generated posts data are displayed.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>hide</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Element</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">html element to hide unwanted text.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>dateFormat</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The format of when the post was created.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>user</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">This is the value of the key profile in the localStorage</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>editFeature</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Contains the html content of the edit and delete features.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="templates_post.mjs.html">templates/post.mjs</a>, <a href="templates_post.mjs.html#line12">line 12</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
     <h4 class="name" id="register"><span class="type-signature"></span>register<span class="signature">(profile, registerURL, method)</span><span class="type-signature"></span></h4>
     
 
@@ -3394,166 +3005,6 @@
     
 
     
-    <h4 class="name" id="renderPostTemplates"><span class="type-signature"></span>renderPostTemplates<span class="signature">(postDataList, parent)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    This function loops though the array of multiple posts and give each post a html template.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>postDataList</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Array</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">This is a array of posts.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>parent</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Element</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">This is the html location to render the function. (div with id allPosts)</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="templates_post.mjs.html">templates/post.mjs</a>, <a href="templates_post.mjs.html#line97">line 97</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
     <h4 class="name" id="save"><span class="type-signature"></span>save<span class="signature">(key, value)</span><span class="type-signature"></span></h4>
     
 
@@ -3943,7 +3394,7 @@
     
 
     
-    <h4 class="name" id="showSearchResults"><span class="type-signature"></span>showSearchResults<span class="signature">(posts, container, hide, dateFormat, user, editFeature)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="showPost"><span class="type-signature"></span>showPost<span class="signature">(post, container, dateFormat, postMedia, editFeature, user)</span><span class="type-signature"></span></h4>
     
 
     
@@ -3951,7 +3402,7 @@
 
 
 <div class="description">
-    This function uses data from searched posts to display each post in html with and without image.
+    This function uses data from API request GET to display posts in html with and without image.
 </div>
 
 
@@ -3987,13 +3438,13 @@
 
         <tr>
             
-                <td class="name"><code>posts</code></td>
+                <td class="name"><code>post</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Array</span>
+<span class="param-type">Object</span>
 
 
             
@@ -4003,7 +3454,7 @@
 
             
 
-            <td class="description last">Array of searched posts.</td>
+            <td class="description last">The data posts.</td>
         </tr>
 
     
@@ -4033,29 +3484,6 @@
 
         <tr>
             
-                <td class="name"><code>hide</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Element</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">html element to hide unwanted text.</td>
-        </tr>
-
-    
-
-        <tr>
-            
                 <td class="name"><code>dateFormat</code></td>
             
 
@@ -4079,13 +3507,13 @@
 
         <tr>
             
-                <td class="name"><code>user</code></td>
+                <td class="name"><code>postMedia</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Object</span>
+<span class="param-type">String</span>
 
 
             
@@ -4095,7 +3523,7 @@
 
             
 
-            <td class="description last">This is the value of the key profile in the localStorage</td>
+            <td class="description last">This is the HTML content for post with image.</td>
         </tr>
 
     
@@ -4118,7 +3546,30 @@
 
             
 
-            <td class="description last">Contains the html content of the edit and delete features.</td>
+            <td class="description last">This is the HTML content from edit and delete features.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>user</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">This is the value of the key profile in the localStorage</td>
         </tr>
 
     
@@ -4159,7 +3610,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="templates_search_posts.mjs.html">templates/search_posts.mjs</a>, <a href="templates_search_posts.mjs.html#line16">line 16</a>
+        <a href="templates_post.mjs.html">templates/post.mjs</a>, <a href="templates_post.mjs.html#line12">line 12</a>
     </li></ul></dd>
     
 
@@ -4195,7 +3646,144 @@
     
 
     
-    <h4 class="name" id="showSearchResults()Thisisafunctionfordisplayingeachpostswithandwithoutimage/media"><span class="type-signature"></span>showSearchResults() This is a function for displaying each posts with and without image/media<span class="signature">(search, input, searchInput, searchInputNumber, searchFiltered)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="showPost()Thisfunctiondisplaysallposts."><span class="type-signature"></span>showPost() This function displays all posts.<span class="signature">(getPostURL)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    This async function sends an API "Get" request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>getPostURL</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">This is the url needed for "GET" request.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="api_posts_get.mjs.html">api/posts/get.mjs</a>, <a href="api_posts_get.mjs.html#line7">line 7</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="showPost()Thisisafunctionfordisplayingeachpostswithandwithoutimage/media"><span class="type-signature"></span>showPost() This is a function for displaying each posts with and without image/media<span class="signature">(search, input, searchInput, searchInputNumber, searchFiltered)</span><span class="type-signature"></span></h4>
     
 
     
@@ -4347,7 +3935,7 @@
 
             
 
-            <td class="description last">It filters put posts when post title and search value are included or if post id matches the search number.</td>
+            <td class="description last">It filters out posts when post title and search value are included or if post id matches the search number.</td>
         </tr>
 
     
@@ -4389,6 +3977,258 @@
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="modules_Search_post.mjs.html">modules/Search_post.mjs</a>, <a href="modules_Search_post.mjs.html#line3">line 3</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="specificPost"><span class="type-signature"></span>specificPost<span class="signature">(post, container, dateFormat, postMedia, editFeature, user)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    This function uses data from API request GET to display a post in html with and without image.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>post</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The data of one post.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>container</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Element</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">This is a html element where all generated posts data are displayed.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>dateFormat</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The format of when the post was created.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>postMedia</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">This is the HTML content for post with image.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>editFeature</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">This is the HTML content from edit and delete features.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>user</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">This is the value of the key profile in the localStorage</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="templates_specific_post.mjs.html">templates/specific_post.mjs</a>, <a href="templates_specific_post.mjs.html#line12">line 12</a>
     </li></ul></dd>
     
 
@@ -4617,13 +4457,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#checkUser">checkUser</a></li><li><a href="global.html#cratePost()ThisfunctionSendsAPIrequest%2522POST%2522withpostdata.">cratePost() This function Sends API request "POST" with post data.</a></li><li><a href="global.html#createPost">createPost</a></li><li><a href="global.html#displayProfile">displayProfile</a></li><li><a href="global.html#filterPosts">filterPosts</a></li><li><a href="global.html#getPost">getPost</a></li><li><a href="global.html#getPosts">getPosts</a></li><li><a href="global.html#headers">headers</a></li><li><a href="global.html#headers()ThisfunctioncontainstheheaderforHTTPrequestmethods.">headers() This function contains the header for HTTP request methods.</a></li><li><a href="global.html#load">load</a></li><li><a href="global.html#login">login</a></li><li><a href="global.html#login()ThisfunctionsendstheprofiledatatoanAPI%2522POST%2522methodandinformswhethertheloginwassuccessfulornot.">login() This function sends the profile data to an API "POST" method and informs whether the login was successful or not.</a></li><li><a href="global.html#logout">logout</a></li><li><a href="global.html#postTemplate">postTemplate</a></li><li><a href="global.html#register">register</a></li><li><a href="global.html#register()ThisfunctionsendstheprofiledatatoanAPI%2522POST%2522methodandinformswhethertheregistrationwassuccessfulornot.">register() This function sends the profile data to an API "POST" method and informs whether the registration was successful or not.</a></li><li><a href="global.html#remove">remove</a></li><li><a href="global.html#removePost">removePost</a></li><li><a href="global.html#removePost()ThisfunctionsendsAPI%2522DELETE%2522requestwithapostid.">removePost() This function sends API "DELETE" request with a post id.</a></li><li><a href="global.html#renderPostTemplates">renderPostTemplates</a></li><li><a href="global.html#save">save</a></li><li><a href="global.html#setUpdatePostFormListener">setUpdatePostFormListener</a></li><li><a href="global.html#showSearchResults">showSearchResults</a></li><li><a href="global.html#showSearchResults()Thisisafunctionfordisplayingeachpostswithandwithoutimage/media">showSearchResults() This is a function for displaying each posts with and without image/media</a></li><li><a href="global.html#updatePost">updatePost</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#checkUser">checkUser</a></li><li><a href="global.html#cratePost()ThisfunctionSendsAPIrequest%2522POST%2522withpostdata.">cratePost() This function Sends API request "POST" with post data.</a></li><li><a href="global.html#createPost">createPost</a></li><li><a href="global.html#displayProfile">displayProfile</a></li><li><a href="global.html#filterPosts">filterPosts</a></li><li><a href="global.html#getPost">getPost</a></li><li><a href="global.html#headers">headers</a></li><li><a href="global.html#headers()ThisfunctioncontainstheheaderforHTTPrequestmethods.">headers() This function contains the header for HTTP request methods.</a></li><li><a href="global.html#load">load</a></li><li><a href="global.html#login">login</a></li><li><a href="global.html#login()ThisfunctionsendstheprofiledatatoanAPI%2522POST%2522methodandinformswhethertheloginwassuccessfulornot.">login() This function sends the profile data to an API "POST" method and informs whether the login was successful or not.</a></li><li><a href="global.html#logout">logout</a></li><li><a href="global.html#register">register</a></li><li><a href="global.html#register()ThisfunctionsendstheprofiledatatoanAPI%2522POST%2522methodandinformswhethertheregistrationwassuccessfulornot.">register() This function sends the profile data to an API "POST" method and informs whether the registration was successful or not.</a></li><li><a href="global.html#remove">remove</a></li><li><a href="global.html#removePost">removePost</a></li><li><a href="global.html#removePost()ThisfunctionsendsAPI%2522DELETE%2522requestwithapostid.">removePost() This function sends API "DELETE" request with a post id.</a></li><li><a href="global.html#save">save</a></li><li><a href="global.html#setUpdatePostFormListener">setUpdatePostFormListener</a></li><li><a href="global.html#showPost">showPost</a></li><li><a href="global.html#showPost()Thisfunctiondisplaysallposts.">showPost() This function displays all posts.</a></li><li><a href="global.html#showPost()Thisisafunctionfordisplayingeachpostswithandwithoutimage/media">showPost() This is a function for displaying each posts with and without image/media</a></li><li><a href="global.html#specificPost">specificPost</a></li><li><a href="global.html#updatePost">updatePost</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Fri Mar 10 2023 17:25:01 GMT+0100 (sentraleuropeisk normaltid)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Sat Mar 11 2023 14:24:04 GMT+0100 (sentraleuropeisk normaltid)
 </footer>
 
 <script> prettyPrint(); </script>
