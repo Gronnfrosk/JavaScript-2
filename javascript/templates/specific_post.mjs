@@ -1,24 +1,23 @@
 import { load } from "../storage/token.mjs";
 
 /**
- * This function uses data from API request GET to display posts in html with and without image.
- * @param {Object} post The data posts.
+ * This function uses data from API request GET to display a post in html with and without image.
+ * @param {Object} post The data of one post.
  * @param {Element} container This is a html element where all generated posts data are displayed.
  * @param {String} dateFormat The format of when the post was created.
  * @param {String} postMedia This is the HTML content for post with image.
  * @param {String} editFeature This is the HTML content from edit and delete features.
  * @param {Object} user This is the value of the key profile in the localStorage
  */
-export function showPost(post) {
+export function specificPost(post) {
 	const container = document.querySelector("#allPosts");
-	post.forEach(function (post) {
-		const { id, title, body, tags, media, created, updated, author, reactions, _count } = post;
-		const { name, avatar } = author;
-		const date = new Date(created);
-		const dateFormat = date.toLocaleDateString("en-GB");
-		const user = load("profile");
-		let postMedia = `<img src="${media}" alt="Image for the post: ${title}" class="pe-0">`;
-		let editFeature = `
+	const { id, title, body, tags, media, created, updated, author, reactions, _count } = post;
+	const { name, avatar } = author;
+	const date = new Date(created);
+	const dateFormat = date.toLocaleDateString("en-GB");
+	const user = load("profile");
+	let postMedia = `<img src="${media}" alt="Image for the post: ${title}" class="pe-0">`;
+	let editFeature = `
                     <div class="float-end" id="edit">
                         <div title="Delete button">
                             <i class="fa-solid fa-trash-can py-2 delete-btn" id="${id}"></i>
@@ -52,15 +51,15 @@ export function showPost(post) {
                         </div>
                     </div>`;
 
-		if (user.name !== name) {
-			editFeature = "";
-		}
+	if (user.name !== name) {
+		editFeature = "";
+	}
 
-		if (!media) {
-			postMedia = "";
-		}
+	if (!media) {
+		postMedia = "";
+	}
 
-		container.innerHTML += `<div class="card mb-3 mt-3">
+	container.innerHTML += `<div class="card mb-3 mt-3">
         <div class="row g-0">
             <div class="card-body">
             ${editFeature}
@@ -76,5 +75,4 @@ export function showPost(post) {
             </div>
         </div>
     </div>`;
-	});
 }

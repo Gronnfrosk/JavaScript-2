@@ -21,19 +21,14 @@ if (path === "/html/login.html") {
 	listeners.logout();
 
 	async function postFeatures() {
-		//show post feed
-		const posts = await postMethods.getPosts();
-		const container = document.querySelector("#allPosts");
-		templates.renderPostTemplates(posts, container);
+		//show post feed, search and filter
+		postMethods.getPosts();
 
 		// Create post
 		listeners.setCreatePostFormListener();
 
 		//Delete posts
 		listeners.deletePost();
-
-		//Search and filter posts
-		postMethods.searchFilter();
 
 		// Update post
 		listeners.setUpdatePostFormListener();
