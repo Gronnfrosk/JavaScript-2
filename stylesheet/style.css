@@ -11,6 +11,7 @@ header i {
   font-size: 3em;
 }
 
+/*Home page and profile page*/
 .postFeed {
   border-bottom: #dee2e6 1px solid;
 }
@@ -41,6 +42,10 @@ header i {
   transform: height(100%);
 }
 
+#update {
+  z-index: 2;
+}
+
 .card-body a {
   text-decoration: none !important;
   color: black;
@@ -63,23 +68,6 @@ header i {
   color: white;
 }
 
-.hide {
-  display: none;
-  position: relative;
-  top: -24px;
-  padding: 10px;
-  background-color: white;
-  color: white;
-}
-
-.hideOld {
-  display: none;
-  position: relative;
-  top: 24px;
-  background-color: white;
-  color: white;
-}
-
 .pe-0 {
   padding-left: 0 !important;
 }
@@ -92,14 +80,6 @@ header i {
 .reverse {
   display: flex;
   flex-direction: column-reverse;
-}
-
-/*Specific_post page*/
-.specific-post-card {
-  width: 500px;
-  margin: 0 auto;
-  padding-top: 100px;
-  min-height: 700px;
 }
 
 /*Profile page*/
@@ -122,6 +102,14 @@ header i {
 
 .profile-post {
   margin-top: 100px;
+}
+
+/*Specific_post page*/
+.specific-post-card {
+  width: 500px;
+  margin: 0 auto;
+  padding-top: 100px;
+  min-height: 700px;
 }
 
 /*Login page*/

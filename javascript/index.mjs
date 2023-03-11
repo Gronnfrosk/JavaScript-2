@@ -17,23 +17,19 @@ if (path === "/html/login.html") {
 } else if (path === "/html/register.html") {
 	listeners.setRegisterFormListener();
 } else if (path === "/index.html" || path === "/html/profile.html") {
-	listeners.checkUser();
 	listeners.logout();
 
-	async function postFeatures() {
-		//show post feed, search and filter
-		postMethods.getPosts();
+	//show post feed, search and filter
+	postMethods.getPosts();
 
-		// Create post
-		listeners.setCreatePostFormListener();
+	// Create post
+	listeners.setCreatePostFormListener();
 
-		//Delete posts
-		listeners.deletePost();
+	//Delete posts
+	listeners.deletePost();
 
-		// Update post
-		listeners.setUpdatePostFormListener();
-	}
-	postFeatures();
+	// Update post
+	listeners.setUpdatePostFormListener();
 
 	if (path === "/html/profile.html") {
 		templates.displayProfile();
