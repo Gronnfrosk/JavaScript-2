@@ -5,15 +5,50 @@ body {
 
 /*Home page*/
 header {
-  margin-top: 100px;
+  margin-top: 175px;
 }
-
 header i {
   font-size: 3em;
 }
 
-.main-home {
-  margin-top: 100px;
+/*Home page and profile page*/
+.postFeed {
+  border-bottom: #dee2e6 1px solid;
+}
+
+.btn-outline-info {
+  width: 100%;
+  display: flex !important;
+  justify-content: center;
+}
+
+.createForm .dropdown-toggle::after {
+  content: "+";
+  position: relative;
+  top: -5px;
+  border: none;
+  font-size: 22px;
+  font-weight: 900;
+  height: 20px;
+}
+
+#create {
+  position: relative !important;
+  inset: -46px auto auto 0px !important;
+  border: 5px double rgba(13, 202, 240, 0.1843137255);
+  width: 100%;
+  height: 10%;
+  transition: 0.5s;
+  transform: height(100%);
+}
+
+#update {
+  z-index: 2;
+}
+
+.card-body a {
+  text-decoration: none !important;
+  color: black;
 }
 
 .posts {
@@ -21,11 +56,37 @@ header i {
   margin: 0 auto;
 }
 
+.allPosts {
+  overflow: hidden;
+}
+
+.dropdown form {
+  width: 350px;
+}
+
+.dropdown-menu li::marker {
+  color: white;
+}
+
+.pe-0 {
+  padding-left: 0 !important;
+}
+
+.fa-trash-can:hover, .fa-pencil:hover {
+  color: #0dcaf0;
+  cursor: pointer;
+}
+
+.reverse {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
 /*Profile page*/
 .example-image {
   margin-top: 20px;
   font-size: 6em;
-  width: 2em;
+  width: 3em;
 }
 
 .contacts {
@@ -41,6 +102,14 @@ header i {
 
 .profile-post {
   margin-top: 100px;
+}
+
+/*Specific_post page*/
+.specific-post-card {
+  width: 500px;
+  margin: 0 auto;
+  padding-top: 100px;
+  min-height: 700px;
 }
 
 /*Login page*/
@@ -65,10 +134,14 @@ header i {
 .form-signin .form-floating:focus-within {
   z-index: 2;
 }
-.form-signin input[type=email] {
+.form-signin input[type=text], .form-signin .login-email {
   margin-bottom: -1px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
+}
+.form-signin .register-email {
+  margin-bottom: -1px;
+  border-radius: 0;
 }
 .form-signin input[type=password] {
   margin-bottom: 10px;
@@ -76,17 +149,24 @@ header i {
   border-top-right-radius: 0;
 }
 
+.invalid-feedback {
+  text-align: left;
+}
+
 footer {
   display: flex;
   justify-content: space-between;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 991px) {
+  .search_form {
+    width: 300px;
+  }
   .bd-placeholder-img-lg {
     font-size: 3.5rem;
   }
 }
-@media (max-width: 760px) {
+@media (max-width: 990px) {
   .profile-main, .main-home {
     margin: 0 20px;
   }

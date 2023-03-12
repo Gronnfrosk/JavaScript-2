@@ -5,10 +5,11 @@
   "main": "index.js",
   "dependencies": {
     "bootstrap": "^5.2.3",
-    "sass": "^1.57.1"
+    "sass": "^1.58.3"
   },
   "scripts": {
-    "compile": "sass --watch stylesheet/main.scss:stylesheet/style.css"
+    "compile": "sass --watch stylesheet/main.scss:stylesheet/style.css",
+    "docs": "jsdoc -c ./conf.json -r"
   },
   "repository": {
     "type": "git",
