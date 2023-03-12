@@ -18,6 +18,7 @@ if (path === "/html/login.html") {
 	listeners.setRegisterFormListener();
 } else if (path === "/index.html" || path === "/html/profile.html") {
 	listeners.logout();
+	listeners.checkUser();
 
 	//show post feed, search and filter
 	postMethods.getPosts();
